@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Siaimes&#39;s blog">
 <meta property="og:description" content="简介 用于配置局域网docker镜像缓存的脚本，启用ssl保证安全性。 服务端配置 克隆项目 12git clone https://github.com/siaimes/docker-cache.gitcd docker-cache 生成证书 1234cd sslchmod +x get_ssl.sh./get_ssl.sh your_server_ipcd .. 启动服务 1n">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-05-12T13:42:56.210Z">
+<meta property="og:updated_time" content="2021-05-20T07:49:24.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="局域网配置Docker Cache">
 <meta name="twitter:description" content="简介 用于配置局域网docker镜像缓存的脚本，启用ssl保证安全性。 服务端配置 克隆项目 12git clone https://github.com/siaimes/docker-cache.gitcd docker-cache 生成证书 1234cd sslchmod +x get_ssl.sh./get_ssl.sh your_server_ipcd .. 启动服务 1n">
@@ -450,12 +450,24 @@
                 
               
 
-              <time title="创建时间：2021-05-12 20:40:43 / 修改时间：21:42:56" itemprop="dateCreated datePublished" datetime="2021-05-12T20:40:43+08:00">2021-05-12</time>
+              <time title="创建时间：2021-05-12 20:40:43" itemprop="dateCreated datePublished" datetime="2021-05-12T20:40:43+08:00">2021-05-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-05-20 15:49:24" itemprop="dateModified" datetime="2021-05-20T15:49:24+08:00">2021-05-20</time>
               
             
           </span>
@@ -538,7 +550,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;registry-mirrors&quot;: [&quot;https://your_server_ip:5000&quot;]&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
 <h2 id="测试结果">测试结果</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rmi your_server_ip:5000/ubuntu</span><br><span class="line">sudo docker pull ubuntu</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rmi your_server_ip:5000/library/ubuntu</span><br><span class="line">sudo docker pull library/ubuntu</span><br><span class="line">sudo docker rmi your_server_ip:5000/pytorch/pytorch</span><br><span class="line">sudo docker pull pytorch/pytorch</span><br></pre></td></tr></table></figure>
+<p>注意到拉取官方镜像的时候需要加上<code>library</code>，否则<code>Error response from daemon: manifest for ubuntu:latest not found</code>。</p>
 <h1 id="参考连接">参考连接</h1>
 <p><a href="https://openpai.readthedocs.io/en/latest/manual/cluster-admin/basic-management-operations.html" target="_blank" rel="noopener">How To Set Up HTTPS</a></p>
 <p><a href="https://blog.csdn.net/min19900718/article/details/87920254" target="_blank" rel="noopener">x509: cannot validate certificate for 10.30.0.163 because it doesn't contain any IP SANs</a></p>
