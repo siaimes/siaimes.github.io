@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Siaimes&#39;s blog">
 <meta property="og:description" content="前提条件  集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。  Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-06-09T06:42:14.109Z">
+<meta property="og:updated_time" content="2021-06-09T07:04:29.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openpai v1.6.0部署总结">
 <meta name="twitter:description" content="前提条件  集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。  Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护">
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-06-09 14:42:14" itemprop="dateModified" datetime="2021-06-09T14:42:14+08:00">2021-06-09</time>
+                <time title="修改时间：2021-06-09 15:04:29" itemprop="dateModified" datetime="2021-06-09T15:04:29+08:00">2021-06-09</time>
               
             
           </span>
@@ -533,7 +533,7 @@
 <p>Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的<a href="https://github.com/microsoft/pai/issues/5316" target="_blank" rel="noopener">问题</a>，所以更新到Ubuntu 18.04。</p>
 <p>master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时候才用到，用物理机器太浪费了。</p>
 <ol start="2" type="1">
-<li>一台境外VPS服务器以及域名。</li>
+<li>一台境外VPS服务器以及域名（域名可选）。</li>
 </ol>
 <p><a href="/2020/11/12/p53.html">之前使用代理的方案</a>虽然可用，但是代理本身会给集群系统带来不确定因素，第二次部署选择了自己构建gcr.io镜像。</p>
 <h1 id="初始化">初始化</h1>
@@ -628,7 +628,9 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@remote_host</span><br></pre></td></tr></table></figure>
 <h1 id="配置gcr.io镜像">配置gcr.io镜像。</h1>
-<p><a href="https://github.com/siaimes/docker-cache" target="_blank" rel="noopener">docker镜像部署</a>，下文假设你的镜像地址为：<code>your.gcr.mirror.addr</code>。</p>
+<p><a href="https://github.com/siaimes/docker-cache" target="_blank" rel="noopener">docker镜像部署</a>，需确保镜像服务器可以访问gcr.io。</p>
+<p>下文假设你的镜像地址为：<code>your.gcr.mirror.addr</code>。</p>
+<p>注意，如果是自签证书记得要按项目介绍配置每一台机器，如果是可信的证书，那么无需额外配置。</p>
 <h1 id="开始安装">开始安装</h1>
 <p>下面都在devbox中操作</p>
 <p><a href="https://openpai.readthedocs.io/en/pai-1.6.y/manual/cluster-admin/installation-guide.html" target="_blank" rel="noopener">https://openpai.readthedocs.io/en/pai-1.6.y/manual/cluster-admin/installation-guide.html</a></p>
@@ -649,7 +651,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">user: &lt;your-ssh-username&gt;</span><br><span class="line">password: &lt;your-ssh-password&gt;</span><br><span class="line">docker_image_tag: v1.6.0</span><br><span class="line"></span><br><span class="line">gcr_image_repo: <span class="string">"your.gcr.mirror.addr"</span></span><br><span class="line">kube_image_repo: <span class="string">"your.gcr.mirror.addr/google-containers"</span></span><br><span class="line"> </span><br><span class="line">openpai_kubespray_extra_var:</span><br><span class="line">  pod_infra_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/pause-&#123;&#123; image_arch &#125;&#125;"</span></span><br><span class="line">  dnsautoscaler_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/cluster-proportional-autoscaler-&#123;&#123; image_arch &#125;&#125;"</span></span><br><span class="line">  tiller_image_repo: <span class="string">"your.gcr.mirror.addr/kubernetes-helm/tiller"</span></span><br><span class="line">  registry_proxy_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/kube-registry-proxy"</span></span><br><span class="line">  metrics_server_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/metrics-server-amd64"</span></span><br><span class="line">  addon_resizer_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/addon-resizer"</span></span><br><span class="line">  dashboard_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/kubernetes-dashboard-&#123;&#123; image_arch &#125;&#125;"</span></span><br></pre></td></tr></table></figure>
 <h2 id="安装">安装</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> contrib/kubespray</span><br><span class="line">/bin/bash quick-start-kubespray.sh</span><br><span class="line">/bin/bash quick-start-service.sh</span><br></pre></td></tr></table></figure>
-<p>如果卡在下载文件的地方，那么需要再次确认<code>/tmp/releases</code>文件夹下相关文件是否都存在，且赋予相应权限。</p>
+<p>如果卡在下载文件的地方，那么需要再次确认<code>/tmp/releases</code>文件夹下相关文件是否都存在，且赋予相应权限。这几个文件有可能会被<code>quick-start-kubespray.sh</code>脚本删除，目前还没空看源码，我是重新再拷贝一次就可以了，等有时间看看为什么再优化。</p>
 <h2 id="重启服务注意事项">重启服务注意事项</h2>
 <p><a href="https://github.com/microsoft/pai/issues/5465" target="_blank" rel="noopener">https://github.com/microsoft/pai/issues/5465</a></p>
 <p><a href="https://github.com/microsoft/pai/blob/master/docs/manual/cluster-admin/basic-management-operations.md" target="_blank" rel="noopener">项目文档</a>说管理集群要使用/pai/paictl.py，但是该文件默认checkout的是最终版本而非当前版本，所以会导致版本不一致问题。</p>
