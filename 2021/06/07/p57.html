@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Siaimes&#39;s blog">
 <meta property="og:description" content="前提条件  集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。  Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-06-16T13:24:34.065Z">
+<meta property="og:updated_time" content="2021-06-20T06:44:27.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openpai v1.6.0部署总结">
 <meta name="twitter:description" content="前提条件  集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。  Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护">
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-06-16 21:24:34" itemprop="dateModified" datetime="2021-06-16T21:24:34+08:00">2021-06-16</time>
+                <time title="修改时间：2021-06-20 14:44:27" itemprop="dateModified" datetime="2021-06-20T14:44:27+08:00">2021-06-20</time>
               
             
           </span>
@@ -637,7 +637,7 @@
 <p>下面都在devbox中操作</p>
 <p><a href="https://openpai.readthedocs.io/en/pai-1.6.y/manual/cluster-admin/installation-guide.html" target="_blank" rel="noopener">https://openpai.readthedocs.io/en/pai-1.6.y/manual/cluster-admin/installation-guide.html</a></p>
 <h2 id="准备项目">准备项目</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/microsoft/pai.git</span><br><span class="line"><span class="built_in">cd</span> pai</span><br><span class="line">git checkout pai-1.6.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/microsoft/pai.git</span><br><span class="line"><span class="built_in">cd</span> pai</span><br><span class="line">git checkout v1.6.0</span><br></pre></td></tr></table></figure>
 <h2 id="修改部分文件">修改部分文件</h2>
 <p>修改理由在这里看：<a href="https://github.com/microsoft/pai/issues/5445" target="_blank" rel="noopener">Problems of install v1.6.0</a></p>
 <ol type="1">
