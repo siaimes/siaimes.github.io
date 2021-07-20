@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Siaimes&#39;s blog">
 <meta property="og:description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-07-20T03:13:26.069Z">
+<meta property="og:updated_time" content="2021-07-20T04:17:10.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openpai v1.6.0部署总结">
 <meta name="twitter:description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-07-20 11:13:26" itemprop="dateModified" datetime="2021-07-20T11:13:26+08:00">2021-07-20</time>
+                <time title="修改时间：2021-07-20 12:17:10" itemprop="dateModified" datetime="2021-07-20T12:17:10+08:00">2021-07-20</time>
               
             
           </span>
@@ -653,8 +653,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook -i inventory/pai/hosts.yml -e <span class="string">"ansible_python_interpreter=/usr/bin/python2"</span> cluster.yml --become --become-user=root -e <span class="string">"@inventory/pai/openpai.yml"</span> || <span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure>
 <h2 id="编写参数文件">编写参数文件</h2>
 <p>参考项目文档编写<code>layout.yaml</code>文件。</p>
-<p>参考下面的格式编写<code>config.yaml</code>文件，其中<code>your.gcr.mirror.addr</code>替换为你的gcr镜像地址。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">user: &lt;your-ssh-username&gt;</span><br><span class="line">password: &lt;your-ssh-password&gt;</span><br><span class="line">docker_image_tag: v1.6.0</span><br><span class="line"></span><br><span class="line">gcr_image_repo: <span class="string">"your.gcr.mirror.addr"</span></span><br><span class="line">kube_image_repo: <span class="string">"your.gcr.mirror.addr/google-containers"</span></span><br><span class="line"> </span><br><span class="line">openpai_kubespray_extra_var:</span><br><span class="line">  pod_infra_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/pause-&#123;&#123; image_arch &#125;&#125;"</span></span><br><span class="line">  dnsautoscaler_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/cluster-proportional-autoscaler-&#123;&#123; image_arch &#125;&#125;"</span></span><br><span class="line">  tiller_image_repo: <span class="string">"your.gcr.mirror.addr/kubernetes-helm/tiller"</span></span><br><span class="line">  registry_proxy_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/kube-registry-proxy"</span></span><br><span class="line">  metrics_server_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/metrics-server-amd64"</span></span><br><span class="line">  addon_resizer_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/addon-resizer"</span></span><br><span class="line">  dashboard_image_repo: <span class="string">"your.gcr.mirror.addr/google_containers/kubernetes-dashboard-&#123;&#123; image_arch &#125;&#125;"</span></span><br></pre></td></tr></table></figure>
+<p>参考下面的格式编写<code>config.yaml</code>文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">user: &lt;your-ssh-username&gt;</span><br><span class="line">password: &lt;your-ssh-password&gt;</span><br><span class="line">docker_image_tag: v1.6.0</span><br></pre></td></tr></table></figure>
 <h2 id="安装">安装</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> contrib/kubespray</span><br><span class="line">/bin/bash quick-start-kubespray.sh</span><br><span class="line">/bin/bash quick-start-service.sh</span><br></pre></td></tr></table></figure>
 <p>如果卡在下载文件的地方，那么需要再次确认<code>/tmp/releases</code>文件夹下相关文件是否都存在，且赋予相应权限。这几个文件有可能会被<code>quick-start-kubespray.sh</code>脚本删除，目前还没空看源码，我是重新再拷贝一次就可以了，等有时间看看为什么再优化。</p>
