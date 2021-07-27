@@ -22,13 +22,13 @@
             
             <tag> Linux </tag>
             
-            <tag> Ubuntu 16.04 </tag>
-            
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> Ubuntu 16.04 </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -76,7 +76,7 @@
       <link href="2021/04/29/p55.html"/>
       <url>2021/04/29/p55.html</url>
       
-        <content type="html"><![CDATA[<p>一般情况下，使用docker-compose不会出现网络问题，但是我遭遇的这个情况比较特殊，故记录之。</p><p>我遭遇的情况是：通过172.17.0.0网段的客户端访问具有Internet地址的ssh服务器，此情况使用docker或docker-compose都会导致ssh连接断开。这种情况常见于单位内部使用172.17.0.0网段的私有地址部署局域网，管理员通过ssh管理本单位的Internet服务器的时候。</p><h1 id="安装docker导致ssh断开连接">安装docker导致ssh断开连接</h1><p>其原因为docker安装完成时，立刻生成docker0网桥。由于ssh服务器是Internet地址，故docker认为默认的网段<code>172.17.0.0/16</code>不会与宿主机冲突，所以分配给docker0网桥的地址是<code>172.17.0.1</code>。然而，因为局域网主机全是<code>172.17.0.0/16</code>，故从该服务器到局域网的所有流量均会被发送到docker0，导致ssh断开连接。</p><p>这个问题比较容易定位，解决方案也很直观。打开<code>/lib/systemd/system/docker.service</code>，在<code>ExecStart=...</code>这一行末尾添加<code>--bip "172.18.0.1/16"</code>然后运行下面的命令重启docker即可： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p><h1 id="使用docker-compose启动容器时导致ssh断开连接">使用docker-compose启动容器时导致ssh断开连接</h1><p>其原因为使用docker-compose启动一组容器会共用一个全新的网桥，docker-compose也认为默认的网段<code>172.17.0.0/16</code>不会与宿主机冲突，且docker0居然不用，所以不用白不用，所以你懂的，于是ssh挂了！</p><p>解决方案：添加一条到局域网的路由，这等于报告docker和docker-compose<code>172.17.0.0/16</code>这个网段已经有用了，你两悠着点。</p><p>首先使用<code>route</code>命令查看默认网关，一般是与主机IP地址同网段的xxx.xxx.xxx.254这个地址。</p><p>然后使用如下命令添加一条路由。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo route add -net 172.17.0.0 netmask 255.255.0.0 gw &lt;默认网关&gt;</span><br></pre></td></tr></table></figure><p>现在在使用docker-compose就不会导致ssh断开连接了。</p><h1 id="合并两个问题">合并两个问题</h1><p>其实只要我们添加了这一条路由，那么也就不用在<code>/lib/systemd/system/docker.service</code>，中添加<code>--bip "172.18.0.1/16"</code>了。</p><h1 id="固化配置">固化配置</h1><p>若上述测试没有问题了，那么将命令 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add -net 172.17.0.0 netmask 255.255.0.0 gw &lt;默认网关&gt;</span><br></pre></td></tr></table></figure></p><p>写入<code>/etc/rc.local</code>即可永远生效。</p><h1 id="未解决的地方">未解决的地方</h1><p>不知为何偶尔使用docker-compose还是会导致断网，此时检查路由表发现上述命令添加的路由表已经丢失。</p><p>所以，运行docker-compose之前最好确认路由表中记录是否在，不在的话，手动重新添加一下。</p><h1 id="参考连接">参考连接</h1><p><a href="https://stackoverflow.com/questions/41736187/docker-compose-network-creation-kicks-me-out-of-ssh" target="_blank" rel="noopener">docker-compose network creation kicks me out of ssh</a></p>]]></content>
+        <content type="html"><![CDATA[<p>一般情况下，使用docker-compose不会出现网络问题，但是我遭遇的这个情况比较特殊，故记录之。</p><p>我遭遇的情况是：通过172.17.0.0网段的客户端访问具有Internet地址的ssh服务器，此情况使用docker或docker-compose都会导致ssh连接断开。这种情况常见于单位内部使用172.17.0.0网段的私有地址部署局域网，管理员通过ssh管理本单位的Internet服务器的时候。</p><h1 id="安装docker导致ssh断开连接">安装docker导致ssh断开连接</h1><p>其原因为docker安装完成时，立刻生成docker0网桥。由于ssh服务器是Internet地址，故docker认为默认的网段<code>172.17.0.0/16</code>不会与宿主机冲突，所以分配给docker0网桥的地址是<code>172.17.0.1</code>。然而，因为局域网主机全是<code>172.17.0.0/16</code>，故从该服务器到局域网的所有流量均会被发送到docker0，导致ssh断开连接。</p><p>这个问题比较容易定位，解决方案也很直观。打开<code>/lib/systemd/system/docker.service</code>，在<code>ExecStart=...</code>这一行末尾添加<code>--bip "172.18.0.1/16"</code>然后运行下面的命令重启docker即可： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload </span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p><h1 id="使用docker-compose启动容器时导致ssh断开连接">使用docker-compose启动容器时导致ssh断开连接</h1><p>其原因为使用docker-compose启动一组容器会共用一个全新的网桥，docker-compose也认为默认的网段<code>172.17.0.0/16</code>不会与宿主机冲突，且docker0居然不用，所以不用白不用，所以你懂的，于是ssh挂了！</p><p>解决方案：添加一条到局域网的路由，这等于报告docker和docker-compose<code>172.17.0.0/16</code>这个网段已经有用了，你两悠着点。</p><p>首先使用<code>route</code>命令查看默认网关，一般是与主机IP地址同网段的xxx.xxx.xxx.254这个地址。</p><p>然后使用如下命令添加一条路由。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo route add -net 172.17.0.0 netmask 255.255.0.0 gw &lt;默认网关&gt;</span><br></pre></td></tr></table></figure><p>现在在使用docker-compose就不会导致ssh断开连接了。</p><h1 id="合并两个问题">合并两个问题</h1><p>其实只要我们添加了这一条路由，那么也就不用在<code>/lib/systemd/system/docker.service</code>，中添加<code>--bip "172.18.0.1/16"</code>了。</p><h1 id="固化配置">固化配置</h1><p>若上述测试没有问题了，那么将命令 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">route add -net 172.17.0.0 netmask 255.255.0.0 gw &lt;默认网关&gt;</span><br></pre></td></tr></table></figure></p><p>写入<code>/etc/rc.local</code>即可永远生效。</p><h1 id="未解决的地方">未解决的地方</h1><p>不知为何偶尔使用docker-compose还是会导致断网，此时检查路由表发现上述命令添加的路由表已经丢失。</p><p>所以，运行docker-compose之前最好确认路由表中记录是否在，不在的话，手动重新添加一下。</p><h1 id="参考连接">参考连接</h1><p><a href="https://stackoverflow.com/questions/41736187/docker-compose-network-creation-kicks-me-out-of-ssh" target="_blank" rel="noopener">docker-compose network creation kicks me out of ssh</a></p><h1 id="最新解决方案">最新解决方案</h1><p>之前的解决方案还是有问题。因为企业大了，网络复杂，整个局域网其实不止用到<code>172.17.*.*</code>这个网段。所以当服务起来之后，如果占用了<code>172.18.*.*</code>，而有客户端在这个网段的话，这个客户端将无法访问服务。</p><p>所以最终的方案是更换地址池到A类IP。</p><ol type="1"><li>修改<code>/etc/docker/daemon.json</code></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> &quot;default-address-pools&quot;:</span><br><span class="line"> [</span><br><span class="line"> &#123;&quot;base&quot;:&quot;10.10.0.0/16&quot;,&quot;size&quot;:24&#125;</span><br><span class="line"> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2" type="1"><li><p>关闭所有docker服务</p></li><li><p>删除现有网桥 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker network prune</span><br></pre></td></tr></table></figure></p></li><li><p>重启docker <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure></p></li><li><p>启动所有docker服务</p></li></ol>]]></content>
       
       
       <categories>
@@ -144,13 +144,13 @@
             
             <tag> Linux </tag>
             
-            <tag> Ubuntu 16.04 </tag>
-            
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> Ubuntu 16.04 </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -185,9 +185,9 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> snap </tag>
-            
             <tag> PyCharm </tag>
+            
+            <tag> snap </tag>
             
         </tags>
       
@@ -222,11 +222,11 @@
             
             <tag> Anaconda </tag>
             
-            <tag> tensorflow </tag>
-            
             <tag> NVIDIA </tag>
             
             <tag> driver </tag>
+            
+            <tag> tensorflow </tag>
             
             <tag> PyTorch </tag>
             
@@ -1040,9 +1040,9 @@
             
             <tag> 动态规划 </tag>
             
-            <tag> 滚动数组 </tag>
-            
             <tag> 依赖背包 </tag>
+            
+            <tag> 滚动数组 </tag>
             
         </tags>
       
