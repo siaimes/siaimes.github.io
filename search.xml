@@ -22,19 +22,19 @@
             
             <tag> Linux </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> Ubuntu 18.04 </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
             <tag> Deep Learning </tag>
             
             <tag> cluster </tag>
-            
-            <tag> Ubuntu 18.04 </tag>
             
         </tags>
       
@@ -59,9 +59,9 @@
       
         <tags>
             
-            <tag> ubuntu </tag>
-            
             <tag> docker </tag>
+            
+            <tag> ubuntu </tag>
             
             <tag> gcr.io </tag>
             
@@ -88,9 +88,9 @@
       
         <tags>
             
-            <tag> ubuntu </tag>
-            
             <tag> docker </tag>
+            
+            <tag> ubuntu </tag>
             
             <tag> docker-compose </tag>
             
@@ -146,11 +146,11 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -185,9 +185,9 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> snap </tag>
-            
             <tag> PyCharm </tag>
+            
+            <tag> snap </tag>
             
         </tags>
       
@@ -1133,9 +1133,9 @@
             
             <tag> 分治策略 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 离散化 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 区间覆盖 </tag>
             
