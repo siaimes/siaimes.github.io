@@ -100,18 +100,18 @@
 
 
 
-  <meta name="description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
-<meta name="keywords" content="Linux,microsoft,openpai,Ubuntu 18.04,PyCharm,vs code,Deep Learning,cluster">
+  <meta name="description" content="v1.8.0仍然有效，只需修改版本号即可。 前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于">
+<meta name="keywords" content="Linux,PyCharm,microsoft,openpai,vs code,Deep Learning,cluster,Ubuntu 18.04">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Openpai v1.6.0部署总结">
 <meta property="og:url" content="https://blog.siaimes.me/2021/06/07/p57.html">
 <meta property="og:site_name" content="Siaimes&#39;s blog">
-<meta property="og:description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
+<meta property="og:description" content="v1.8.0仍然有效，只需修改版本号即可。 前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-08-16T03:14:24.206Z">
+<meta property="og:updated_time" content="2021-08-19T10:18:58.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openpai v1.6.0部署总结">
-<meta name="twitter:description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
+<meta name="twitter:description" content="v1.8.0仍然有效，只需修改版本号即可。 前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于">
 
 
 
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-08-16 11:14:24" itemprop="dateModified" datetime="2021-08-16T11:14:24+08:00">2021-08-16</time>
+                <time title="修改时间：2021-08-19 18:18:58" itemprop="dateModified" datetime="2021-08-19T18:18:58+08:00">2021-08-19</time>
               
             
           </span>
@@ -526,7 +526,8 @@
       
 
       
-        <h1 id="前提条件">前提条件</h1>
+        <p><strong><em>v1.8.0仍然有效，只需修改版本号即可。</em></strong></p>
+<h1 id="前提条件">前提条件</h1>
 <p>集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。</p>
 <p>Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的<a href="https://github.com/microsoft/pai/issues/5316" target="_blank" rel="noopener">问题</a>，所以更新到Ubuntu 18.04。</p>
 <p>master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时候才用到，用物理机器太浪费了。</p>
@@ -557,19 +558,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python</span><br></pre></td></tr></table></figure>
 <h3 id="安装nfs客户端">安装nfs客户端</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nfs-common</span><br></pre></td></tr></table></figure>
-<h3 id="离线文件下载">离线文件下载</h3>
-<p><strong><em>最新方法参考：<a href="https://github.com/microsoft/pai/issues/5592" target="_blank" rel="noopener">https://github.com/microsoft/pai/issues/5592</a></em></strong></p>
-<p><strong><em>注：除dev-box不用外，其余每台机器都要。</em></strong></p>
-<p><a href="https://ua4wpg.bn.files.1drv.com/y4mk4pfpsqOR9yt5UEy6YTMZ8IcU47gjB01XX__astFlbqcoXpoWDT2Rwum8q3JI-CjBl3F-TANSmgfRBAvakZ4v9ks8sbgGTZeOJfuuq8XG6M2Dsu-kACYt_AvvTDbVRWEQocb0vYCv68bTtkYEX_B_2vC6AMVytwvcqXgT6QKawTtyAqRjJdYq8fd5yzCr3yItyK_w0GEgEsAu5ZhT-KCDw" target="_blank" rel="noopener">文件下载地址</a></p>
-<p>将下载好的文件分发到集群中所有节点，并运行下述命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unzip pai-offine-deploy.zip</span><br><span class="line"><span class="built_in">cd</span> pai-offine-deploy</span><br><span class="line">chmod +x setup.sh</span><br><span class="line">sudo ./setup.sh</span><br></pre></td></tr></table></figure>
-<p>注意，上述文件适用于x86_64架构，其他架构的相关文件链接可在 <a href="https://github.com/kubernetes-sigs/kubespray/blob/master/roles/download/defaults/main.yml" target="_blank" rel="noopener">kubespray/blob/master/roles/download/defaults/main.yml</a>找到。</p>
-<p>脚本所作操作如下：</p>
-<ol type="1">
-<li><p>加载需要的docker镜像；</p></li>
-<li><p>由<a href="https://github.com/kubernetes-sigs/kubespray/blob/b0fcc1ad1d78a373a12c109491914b877fc2d56d/roles/download/defaults/main.yml#L2" target="_blank" rel="noopener">这一行</a>可知，安装的时候下载的文件会存放在<code>/tmp/releases/</code>文件夹，故可提前下载好相关文件以避免网络问题。</p></li>
-<li><p>由<a href="https://github.com/kubernetes-sigs/kubespray/blob/daed3e5b6a085ac99e076b51d314fcf76e4127b4/roles/kubernetes/node/tasks/install.yml#L11" target="_blank" rel="noopener">这一行</a>可知，如果使用了<code>skip_downloads: true</code>参数，kubaadm默认不会在master节点安装，所以手动安装kubaadm。</p></li>
-</ol>
 <h2 id="master">master</h2>
 <h3 id="安装ntp">安装ntp</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ntp</span><br></pre></td></tr></table></figure>
@@ -648,21 +636,47 @@
 <h2 id="准备项目">准备项目</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/microsoft/pai.git</span><br><span class="line"><span class="built_in">cd</span> pai</span><br><span class="line">git checkout v1.6.0</span><br></pre></td></tr></table></figure>
 <h2 id="修改部分文件">修改部分文件</h2>
+<p><strong><em>注</em></strong>：下面所有命令中<code>&lt;pai-code-dir&gt;</code>需要替换为您的pai项目所在路径。</p>
 <p>修改理由在这里看：<a href="https://github.com/microsoft/pai/issues/5445" target="_blank" rel="noopener">Problems of install v1.6.0</a></p>
 <ol type="1">
-<li>注释掉<a href="https://github.com/microsoft/pai/blob/b18ec56fd4cc089e681891825a01c2ee966c4d4b/contrib/kubespray/quick-start-kubespray.sh#L60" target="_blank" rel="noopener">这一行</a>：</li>
+<li>注释掉<a href="https://github.com/microsoft/pai/blob/master/contrib/kubespray/quick-start-kubespray.sh#L60" target="_blank" rel="noopener"><code>&lt;pai-code-dir&gt;/contrib/kubespray/quick-start-kubespray.sh#L60</code></a>：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook -i <span class="variable">$&#123;HOME&#125;</span>/pai-deploy/cluster-cfg/hosts.yml docker-cache-config-distribute.yml || <span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure>
 <ol start="2" type="1">
-<li>注释掉<a href="https://github.com/microsoft/pai/blob/b18ec56fd4cc089e681891825a01c2ee966c4d4b/contrib/kubespray/script/environment.sh#L50" target="_blank" rel="noopener">这一行</a>：</li>
+<li>注释掉<a href="https://github.com/microsoft/pai/blob/master/contrib/kubespray/script/environment.sh#L50" target="_blank" rel="noopener"><code>&lt;pai-code-dir&gt;/contrib/kubespray/script/environment.sh#L50</code></a>：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python3 -m pip install ansible==2.9.7</span><br></pre></td></tr></table></figure>
 <ol start="3" type="1">
-<li>将<a href="https://github.com/microsoft/pai/blob/b18ec56fd4cc089e681891825a01c2ee966c4d4b/contrib/kubespray/script/kubernetes-boot.sh#L8" target="_blank" rel="noopener">这一行</a></li>
+<li>将<a href="https://github.com/microsoft/pai/blob/master/contrib/kubespray/script/kubernetes-boot.sh#L8" target="_blank" rel="noopener"><code>&lt;pai-code-dir&gt;/contrib/kubespray/script/environment.sh#L50</code></a></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook -i inventory/pai/hosts.yml -e <span class="string">"ansible_python_interpreter=/usr/bin/python3"</span> cluster.yml --become --become-user=root -e <span class="string">"@inventory/pai/openpai.yml"</span> || <span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure>
 <p>改为</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook -i inventory/pai/hosts.yml -e <span class="string">"ansible_python_interpreter=/usr/bin/python2"</span> cluster.yml --become --become-user=root -e <span class="string">"@inventory/pai/openpai.yml"</span> || <span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure>
+<h2 id="离线安装相关文件准备">离线安装相关文件准备</h2>
+<p><strong><em>参考：<a href="https://github.com/microsoft/pai/issues/5592" target="_blank" rel="noopener">https://github.com/microsoft/pai/issues/5592</a></em></strong></p>
+<h3 id="修改安装脚本">修改安装脚本</h3>
+<p>将 <a href="https://github.com/microsoft/pai/blob/master/contrib/kubespray/quick-start-kubespray.sh" target="_blank" rel="noopener"><code>&lt;pai-code-dir&gt;/contrib/kubespray/quick-start-kubespray.sh</code></a> 由 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Performing docker-cache config distribution..."</span></span><br><span class="line"><span class="comment">#ansible-playbook -i $&#123;HOME&#125;/pai-deploy/cluster-cfg/hosts.yml docker-cache-config-distribute.yml -e "@$&#123;CLUSTER_CONFIG&#125;" || exit $?</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Starting kubernetes..."</span></span><br><span class="line">/bin/bash script/kubernetes-boot.sh || <span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure></p>
+<p>改为 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Performing docker-cache config distribution..."</span></span><br><span class="line"><span class="comment">#ansible-playbook -i $&#123;HOME&#125;/pai-deploy/cluster-cfg/hosts.yml docker-cache-config-distribute.yml -e "@$&#123;CLUSTER_CONFIG&#125;" || exit $?</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Performing offline deploy file distribution..."</span></span><br><span class="line">ansible-playbook -i <span class="variable">$&#123;HOME&#125;</span>/pai-deploy/cluster-cfg/hosts.yml offline-deploy-files-distribute.yml || <span class="built_in">exit</span> $?</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Starting kubernetes..."</span></span><br><span class="line">/bin/bash script/kubernetes-boot.sh || <span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure></p>
+<p>即在运行<code>script/kubernetes-boot.sh</code>之前运行<code>offline-deploy-files-distribute.yml</code>。</p>
+<h3 id="下载并保存离线文件">下载并保存离线文件</h3>
+<p><a href="https://08kytw.bn.files.1drv.com/y4mnHqJp5eDwIMFZgFBpZMdF6RZs9RLPIRZUQKyxfMxCCj5lS-NUxgM7bNstYdH-pMI0J_VgdUgssFfrcGw0mol-bjpGc0ntnKlSXz2hS-Tp3Mh68XMa_H__Trd4wDjpFkp_3VX_De6PZfpDF15z-I5nkkpY47WEzuQO97IAIqSoFYfjzmi_Uqi1Ijwzhx4we3oG1gUpuc_MSBobyot09h76A" target="_blank" rel="noopener">下载地址</a></p>
+<p>Windows直接使用浏览器下载，Linux可使用下述命令下载： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://08kytw.bn.files.1drv.com/y4mnHqJp5eDwIMFZgFBpZMdF6RZs9RLPIRZUQKyxfMxCCj5lS-NUxgM7bNstYdH-pMI0J_VgdUgssFfrcGw0mol-bjpGc0ntnKlSXz2hS-Tp3Mh68XMa_H__Trd4wDjpFkp_3VX_De6PZfpDF15z-I5nkkpY47WEzuQO97IAIqSoFYfjzmi_Uqi1Ijwzhx4we3oG1gUpuc_MSBobyot09h76A -o pai-offline-deploy-distribute.zip</span><br></pre></td></tr></table></figure></p>
+<ol type="1">
+<li><p>解压 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip pai-offline-deploy-distribute.zip</span><br><span class="line"><span class="built_in">cd</span> pai-offline-deploy-distribute</span><br></pre></td></tr></table></figure></p></li>
+<li><p>将<code>offline-deploy-files-distribute.yml</code>复制到<code>&lt;pai-code-dir&gt;/contrib/kubespray</code>。</p></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp offline-deploy-files-distribute.yml &lt;pai-code-dir&gt;/contrib/kubespray</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>将<code>roles/offline-deploy-files-distribute</code>复制到<code>&lt;pai-code-dir&gt;/contrib/kubespray/roles</code>。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r roles/offline-deploy-files-distribute &lt;pai-code-dir&gt;/contrib/kubespray/roles</span><br></pre></td></tr></table></figure>
+<p>注意，上述文件适用于x86_64架构，其他架构的相关文件链接可在 <a href="https://github.com/kubernetes-sigs/kubespray/blob/master/roles/download/defaults/main.yml" target="_blank" rel="noopener">kubespray/blob/master/roles/download/defaults/main.yml</a>找到。</p>
+<p>脚本所作操作如下：</p>
+<ol type="1">
+<li><p>加载需要的docker镜像；</p></li>
+<li><p>由<a href="https://github.com/kubernetes-sigs/kubespray/blob/b0fcc1ad1d78a373a12c109491914b877fc2d56d/roles/download/defaults/main.yml#L2" target="_blank" rel="noopener">这一行</a>可知，安装的时候下载的文件会存放在<code>/tmp/releases/</code>文件夹，故可提前下载好相关文件以避免网络问题。</p></li>
+<li><p>由<a href="https://github.com/kubernetes-sigs/kubespray/blob/daed3e5b6a085ac99e076b51d314fcf76e4127b4/roles/kubernetes/node/tasks/install.yml#L11" target="_blank" rel="noopener">这一行</a>可知，如果使用了<code>skip_downloads: true</code>参数，kubaadm默认不会在master节点安装，所以手动安装kubaadm。</p></li>
+</ol>
 <h2 id="编写参数文件">编写参数文件</h2>
 <p>参考项目文档编写<code>layout.yaml</code>文件。</p>
 <p>参考下面的格式编写<code>config.yaml</code>文件。</p>
@@ -731,19 +745,19 @@
           
             <a href="/tags/Linux/" rel="tag"># Linux</a>
           
+            <a href="/tags/PyCharm/" rel="tag"># PyCharm</a>
+          
             <a href="/tags/microsoft/" rel="tag"># microsoft</a>
           
             <a href="/tags/openpai/" rel="tag"># openpai</a>
-          
-            <a href="/tags/Ubuntu-18-04/" rel="tag"># Ubuntu 18.04</a>
-          
-            <a href="/tags/PyCharm/" rel="tag"># PyCharm</a>
           
             <a href="/tags/vs-code/" rel="tag"># vs code</a>
           
             <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
           
             <a href="/tags/cluster/" rel="tag"># cluster</a>
+          
+            <a href="/tags/Ubuntu-18-04/" rel="tag"># Ubuntu 18.04</a>
           
         </div>
       
@@ -1171,7 +1185,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提条件"><span class="nav-number">1.</span> <span class="nav-text">前提条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化"><span class="nav-number">2.</span> <span class="nav-text">初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#所有机器"><span class="nav-number">2.1.</span> <span class="nav-text">所有机器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭自动更新"><span class="nav-number">2.1.1.</span> <span class="nav-text">关闭自动更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换清华源"><span class="nav-number">2.1.2.</span> <span class="nav-text">切换清华源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新依赖"><span class="nav-number">2.1.3.</span> <span class="nav-text">更新依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动bbr可选"><span class="nav-number">2.1.4.</span> <span class="nav-text">启动BBR（可选）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装openssh-server"><span class="nav-number">2.1.5.</span> <span class="nav-text">安装openssh-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装docker"><span class="nav-number">2.1.6.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装python"><span class="nav-number">2.1.7.</span> <span class="nav-text">安装python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nfs客户端"><span class="nav-number">2.1.8.</span> <span class="nav-text">安装nfs客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#离线文件下载"><span class="nav-number">2.1.9.</span> <span class="nav-text">离线文件下载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#master"><span class="nav-number">2.2.</span> <span class="nav-text">master</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ntp"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装ntp</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#worker"><span class="nav-number">2.3.</span> <span class="nav-text">worker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装gpu驱动"><span class="nav-number">2.3.1.</span> <span class="nav-text">安装GPU驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nvidia-container-runtime"><span class="nav-number">2.3.2.</span> <span class="nav-text">安装nvidia-container-runtime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置gpu常驻内存"><span class="nav-number">2.3.3.</span> <span class="nav-text">设置GPU常驻内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试驱动是否正常"><span class="nav-number">2.3.4.</span> <span class="nav-text">测试驱动是否正常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理容器内nvidia-smi无法显示占用gpu进程问题"><span class="nav-number">2.3.5.</span> <span class="nav-text">处理容器内nvidia-smi无法显示占用GPU进程问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#devbox"><span class="nav-number">2.4.</span> <span class="nav-text">devbox</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置免密登录"><span class="nav-number">2.4.1.</span> <span class="nav-text">配置免密登录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始安装"><span class="nav-number">3.</span> <span class="nav-text">开始安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备项目"><span class="nav-number">3.1.</span> <span class="nav-text">准备项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改部分文件"><span class="nav-number">3.2.</span> <span class="nav-text">修改部分文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写参数文件"><span class="nav-number">3.3.</span> <span class="nav-text">编写参数文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.4.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启服务注意事项"><span class="nav-number">3.5.</span> <span class="nav-text">重启服务注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后续"><span class="nav-number">4.</span> <span class="nav-text">后续</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提条件"><span class="nav-number">1.</span> <span class="nav-text">前提条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化"><span class="nav-number">2.</span> <span class="nav-text">初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#所有机器"><span class="nav-number">2.1.</span> <span class="nav-text">所有机器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭自动更新"><span class="nav-number">2.1.1.</span> <span class="nav-text">关闭自动更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换清华源"><span class="nav-number">2.1.2.</span> <span class="nav-text">切换清华源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新依赖"><span class="nav-number">2.1.3.</span> <span class="nav-text">更新依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动bbr可选"><span class="nav-number">2.1.4.</span> <span class="nav-text">启动BBR（可选）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装openssh-server"><span class="nav-number">2.1.5.</span> <span class="nav-text">安装openssh-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装docker"><span class="nav-number">2.1.6.</span> <span class="nav-text">安装docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装python"><span class="nav-number">2.1.7.</span> <span class="nav-text">安装python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nfs客户端"><span class="nav-number">2.1.8.</span> <span class="nav-text">安装nfs客户端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#master"><span class="nav-number">2.2.</span> <span class="nav-text">master</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ntp"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装ntp</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#worker"><span class="nav-number">2.3.</span> <span class="nav-text">worker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装gpu驱动"><span class="nav-number">2.3.1.</span> <span class="nav-text">安装GPU驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nvidia-container-runtime"><span class="nav-number">2.3.2.</span> <span class="nav-text">安装nvidia-container-runtime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置gpu常驻内存"><span class="nav-number">2.3.3.</span> <span class="nav-text">设置GPU常驻内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试驱动是否正常"><span class="nav-number">2.3.4.</span> <span class="nav-text">测试驱动是否正常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理容器内nvidia-smi无法显示占用gpu进程问题"><span class="nav-number">2.3.5.</span> <span class="nav-text">处理容器内nvidia-smi无法显示占用GPU进程问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#devbox"><span class="nav-number">2.4.</span> <span class="nav-text">devbox</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置免密登录"><span class="nav-number">2.4.1.</span> <span class="nav-text">配置免密登录</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始安装"><span class="nav-number">3.</span> <span class="nav-text">开始安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备项目"><span class="nav-number">3.1.</span> <span class="nav-text">准备项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改部分文件"><span class="nav-number">3.2.</span> <span class="nav-text">修改部分文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离线安装相关文件准备"><span class="nav-number">3.3.</span> <span class="nav-text">离线安装相关文件准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改安装脚本"><span class="nav-number">3.3.1.</span> <span class="nav-text">修改安装脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载并保存离线文件"><span class="nav-number">3.3.2.</span> <span class="nav-text">下载并保存离线文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写参数文件"><span class="nav-number">3.4.</span> <span class="nav-text">编写参数文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.5.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启服务注意事项"><span class="nav-number">3.6.</span> <span class="nav-text">重启服务注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后续"><span class="nav-number">4.</span> <span class="nav-text">后续</span></a></li></ol></div>
             
 
           </div>
