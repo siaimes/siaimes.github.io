@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Siaimes&#39;s blog">
 <meta property="og:description" content="v1.8.0仍然有效，只需修改版本号即可。 前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-09-17T13:52:50.315Z">
+<meta property="og:updated_time" content="2021-09-17T13:56:13.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openpai v1.6.0部署总结">
 <meta name="twitter:description" content="v1.8.0仍然有效，只需修改版本号即可。 前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于">
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-09-17 21:52:50" itemprop="dateModified" datetime="2021-09-17T21:52:50+08:00">2021-09-17</time>
+                <time title="修改时间：2021-09-17 21:56:13" itemprop="dateModified" datetime="2021-09-17T21:56:13+08:00">2021-09-17</time>
               
             
           </span>
@@ -537,7 +537,7 @@
 <p>Ubuntu 18.04 LTS server默认是开启自动更新的，需要关闭，以避免不必要的系统故障。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/apt.conf.d/20auto-upgrades</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">APT::Periodic::Update-Package-Lists <span class="string">"0"</span>;</span><br><span class="line">APT::Periodic::Download-Upgradeable-Packages <span class="string">"0"</span>;</span><br><span class="line">APT::Periodic::AutocleanInterval <span class="string">"0"</span>;</span><br><span class="line">APT::Periodic::Unattended-Upgrade <span class="string">"0"</span>;</span><br></pre></td></tr></table></figure>
-<p>参考：<a href="https://linuxconfig.org/disable-automatic-updates-on-ubuntu-18-04-bionic-beaver-linux" target="_blank" rel="noopener">Disable Automatic Updates on Ubuntu 18.04 Bionic Beaver Linux</a></p>
+<p>参考：<a href="https://chrisalbon.com/code/deep_learning/setup/prevent_nvidia_drivers_from_upgrading/" target="_blank" rel="noopener">Prevent Ubuntu 18.06 And Nvidia Drivers From Updating</a></p>
 <h3 id="切换清华源">切换清华源</h3>
 <p><a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
 <h3 id="更新依赖">更新依赖</h3>
