@@ -100,18 +100,18 @@
 
 
 
-  <meta name="description" content="v1.8.0仍然有效，只需修改版本号即可。 前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于">
+  <meta name="description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
 <meta name="keywords" content="Linux,PyCharm,microsoft,openpai,vs code,Deep Learning,cluster,Ubuntu 18.04">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Openpai v1.6.0部署总结">
+<meta property="og:title" content="Openpai v1.8.0部署总结">
 <meta property="og:url" content="https://blog.siaimes.me/2021/06/07/p57.html">
 <meta property="og:site_name" content="Siaimes&#39;s blog">
-<meta property="og:description" content="v1.8.0仍然有效，只需修改版本号即可。 前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于">
+<meta property="og:description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-10-06T12:16:34.645Z">
+<meta property="og:updated_time" content="2021-10-06T12:28:57.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Openpai v1.6.0部署总结">
-<meta name="twitter:description" content="v1.8.0仍然有效，只需修改版本号即可。 前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于">
+<meta name="twitter:title" content="Openpai v1.8.0部署总结">
+<meta name="twitter:description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>Openpai v1.6.0部署总结 | Siaimes's blog</title>
+  <title>Openpai v1.8.0部署总结 | Siaimes's blog</title>
   
 
 
@@ -424,7 +424,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Openpai v1.6.0部署总结
+          <h2 class="post-title" itemprop="name headline">Openpai v1.8.0部署总结
 
               
             
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-10-06 20:16:34" itemprop="dateModified" datetime="2021-10-06T20:16:34+08:00">2021-10-06</time>
+                <time title="修改时间：2021-10-06 20:28:57" itemprop="dateModified" datetime="2021-10-06T20:28:57+08:00">2021-10-06</time>
               
             
           </span>
@@ -526,8 +526,7 @@
       
 
       
-        <p><strong><em>v1.8.0仍然有效，只需修改版本号即可。</em></strong></p>
-<h1 id="前提条件">前提条件</h1>
+        <h1 id="前提条件">前提条件</h1>
 <p>集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。</p>
 <p>Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的<a href="https://github.com/microsoft/pai/issues/5316" target="_blank" rel="noopener">问题</a>，所以更新到Ubuntu 18.04。</p>
 <p>master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时候才用到，用物理机器太浪费了。</p>
@@ -636,7 +635,7 @@
 <p>下面都在devbox中操作</p>
 <p><a href="https://openpai.readthedocs.io/en/pai-1.6.y/manual/cluster-admin/installation-guide.html" target="_blank" rel="noopener">https://openpai.readthedocs.io/en/pai-1.6.y/manual/cluster-admin/installation-guide.html</a></p>
 <h2 id="准备项目">准备项目</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/microsoft/pai.git</span><br><span class="line"><span class="built_in">cd</span> pai</span><br><span class="line">git checkout v1.6.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/microsoft/pai.git</span><br><span class="line"><span class="built_in">cd</span> pai</span><br><span class="line">git checkout v1.8.0</span><br></pre></td></tr></table></figure>
 <h2 id="修改部分文件">修改部分文件</h2>
 <p><strong><em>注</em></strong>：下面所有命令中<code>&lt;pai-code-dir&gt;</code>需要替换为您的pai项目所在路径。</p>
 <p>修改理由在这里看：<a href="https://github.com/microsoft/pai/issues/5445" target="_blank" rel="noopener">Problems of install v1.6.0</a></p>
@@ -649,12 +648,6 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python3 -m pip install ansible==2.9.7</span><br></pre></td></tr></table></figure>
 <p>改为 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python3 -m pip install ansible==2.9.24</span><br></pre></td></tr></table></figure></p>
-<ol start="3" type="1">
-<li>将<a href="https://github.com/microsoft/pai/blob/master/contrib/kubespray/script/kubernetes-boot.sh#L8" target="_blank" rel="noopener"><code>&lt;pai-code-dir&gt;/contrib/kubespray/script/kubernetes-boot.sh#L8</code></a></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook -i inventory/pai/hosts.yml -e <span class="string">"ansible_python_interpreter=/usr/bin/python3"</span> cluster.yml --become --become-user=root -e <span class="string">"@inventory/pai/openpai.yml"</span> || <span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure>
-<p>改为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-playbook -i inventory/pai/hosts.yml -e <span class="string">"ansible_python_interpreter=/usr/bin/python2"</span> cluster.yml --become --become-user=root -e <span class="string">"@inventory/pai/openpai.yml"</span> || <span class="built_in">exit</span> $?</span><br></pre></td></tr></table></figure>
 <h2 id="离线安装相关文件准备">离线安装相关文件准备</h2>
 <p><strong><em>参考：<a href="https://github.com/microsoft/pai/issues/5592" target="_blank" rel="noopener">https://github.com/microsoft/pai/issues/5592</a></em></strong></p>
 <h3 id="修改安装脚本">修改安装脚本</h3>
@@ -683,7 +676,7 @@
 <h2 id="编写参数文件">编写参数文件</h2>
 <p>参考项目文档编写<code>layout.yaml</code>文件。</p>
 <p>参考下面的格式编写<code>config.yaml</code>文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user: &lt;your-ssh-username&gt;</span><br><span class="line">password: &lt;your-ssh-password&gt;</span><br><span class="line">docker_image_tag: v1.6.0</span><br><span class="line"></span><br><span class="line">openpai_kubespray_extra_var:</span><br><span class="line">  download_container: <span class="literal">false</span></span><br><span class="line">  skip_downloads: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user: &lt;your-ssh-username&gt;</span><br><span class="line">password: &lt;your-ssh-password&gt;</span><br><span class="line">docker_image_tag: v1.8.0</span><br><span class="line"></span><br><span class="line">openpai_kubespray_extra_var:</span><br><span class="line">  download_container: <span class="literal">false</span></span><br><span class="line">  skip_downloads: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>因为我们已经下载好了相关文件，所以使用<code>skip_downloads: true</code>禁用下载文件相关代码，使用<code>download_container: false</code>禁用拉取镜像相关代码。</p>
 <h2 id="安装">安装</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> contrib/kubespray</span><br><span class="line">/bin/bash quick-start-kubespray.sh</span><br><span class="line">/bin/bash quick-start-service.sh</span><br></pre></td></tr></table></figure>
@@ -692,7 +685,7 @@
 <p><a href="https://github.com/microsoft/pai/blob/master/docs/manual/cluster-admin/basic-management-operations.md" target="_blank" rel="noopener">项目文档</a>说管理集群要使用/pai/paictl.py，但是该文件默认checkout的是最终版本而非当前版本，所以会导致版本不一致问题。</p>
 <p>如果要使用这个脚本的话，每次启动容器都要手动checkout一下，否则可能导致服务无法正常启动。</p>
 <p>目前的解决方案是将本地checkout好的项目挂载到容器里面然后直接用那里面的paictl.py。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -itd \</span><br><span class="line">        -e COLUMNS=<span class="variable">$COLUMNS</span> -e LINES=<span class="variable">$LINES</span> -e TERM=<span class="variable">$TERM</span> \</span><br><span class="line">        -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">        -v <span class="variable">$&#123;HOME&#125;</span>/pai-deploy/cluster-cfg:/cluster-configuration  \</span><br><span class="line">        -v <span class="variable">$&#123;HOME&#125;</span>/pai-deploy/kube:/root/.kube \</span><br><span class="line">        -v <span class="variable">$&#123;HOME&#125;</span>/pai:/mnt/pai \</span><br><span class="line">        --pid=host \</span><br><span class="line">        --privileged=<span class="literal">true</span> \</span><br><span class="line">        --net=host \</span><br><span class="line">        --name=dev-box \</span><br><span class="line">        --restart=always \</span><br><span class="line">        openpai/dev-box:v1.6.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -itd \</span><br><span class="line">        -e COLUMNS=<span class="variable">$COLUMNS</span> -e LINES=<span class="variable">$LINES</span> -e TERM=<span class="variable">$TERM</span> \</span><br><span class="line">        -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">        -v <span class="variable">$&#123;HOME&#125;</span>/pai-deploy/cluster-cfg:/cluster-configuration  \</span><br><span class="line">        -v <span class="variable">$&#123;HOME&#125;</span>/pai-deploy/kube:/root/.kube \</span><br><span class="line">        -v <span class="variable">$&#123;HOME&#125;</span>/pai:/mnt/pai \</span><br><span class="line">        --pid=host \</span><br><span class="line">        --privileged=<span class="literal">true</span> \</span><br><span class="line">        --net=host \</span><br><span class="line">        --name=dev-box \</span><br><span class="line">        --restart=always \</span><br><span class="line">        openpai/dev-box:v1.8.0</span><br></pre></td></tr></table></figure>
 <p>运行这个命令前确保<code>${HOME}/pai</code>中检出版本与安装版本一直，然后容器中使用<code>/mnt/pai</code>中的<code>paictl.py</code>。</p>
 <h1 id="后续">后续</h1>
 <p>成功启动service之后，其他个性化配置过程一般不会有问题，除非配置文件写错了，务必检查清楚。</p>
@@ -730,7 +723,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://blog.siaimes.me/2021/06/07/p57.html" title="Openpai v1.6.0部署总结">https://blog.siaimes.me/2021/06/07/p57.html</a>
+    <a href="https://blog.siaimes.me/2021/06/07/p57.html" title="Openpai v1.8.0部署总结">https://blog.siaimes.me/2021/06/07/p57.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nd/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-ND</a> 许可协议。转载请注明出处！</li>
