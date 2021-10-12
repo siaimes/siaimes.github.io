@@ -101,14 +101,14 @@
 
 
   <meta name="description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
-<meta name="keywords" content="Linux,PyCharm,microsoft,openpai,Ubuntu 18.04,vs code,Deep Learning,cluster">
+<meta name="keywords" content="Linux,microsoft,openpai,PyCharm,vs code,Deep Learning,cluster,Ubuntu 18.04">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Openpai v1.8.0部署总结">
 <meta property="og:url" content="https://blog.siaimes.me/2021/06/07/p57.html">
 <meta property="og:site_name" content="Siaimes&#39;s blog">
 <meta property="og:description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-10-11T06:22:39.280Z">
+<meta property="og:updated_time" content="2021-10-12T12:49:25.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openpai v1.8.0部署总结">
 <meta name="twitter:description" content="前提条件 集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。 Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的问题，所以更新到Ubuntu 18.04。 master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时">
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-10-11 14:22:39" itemprop="dateModified" datetime="2021-10-11T14:22:39+08:00">2021-10-11</time>
+                <time title="修改时间：2021-10-12 20:49:25" itemprop="dateModified" datetime="2021-10-12T20:49:25+08:00">2021-10-12</time>
               
             
           </span>
@@ -530,6 +530,7 @@
 <p>集群内主机系统为Ubuntu 18.04 LTS server，且具有相同用户名和密码的管理员账户。</p>
 <p>Openpai项目文档建议用Ubuntu 16.04 LTS，但是我在Ubuntu 16.04 LTS遇到了很严重的<a href="https://github.com/microsoft/pai/issues/5316" target="_blank" rel="noopener">问题</a>，所以更新到Ubuntu 18.04。</p>
 <p>master，worker必须为物理机器，dev-box可以是硬盘空间不少于40GB的虚拟机，毕竟他只有安装和维护系统的时候才用到，用物理机器太浪费了。</p>
+<p><strong><em>注：</em></strong>k8s不支持swap，安装系统的时候请不要添加swap分区。</p>
 <h1 id="初始化">初始化</h1>
 <h2 id="所有机器">所有机器</h2>
 <h3 id="关闭自动更新">关闭自动更新</h3>
@@ -743,19 +744,19 @@
           
             <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-            <a href="/tags/PyCharm/" rel="tag"># PyCharm</a>
-          
             <a href="/tags/microsoft/" rel="tag"># microsoft</a>
           
             <a href="/tags/openpai/" rel="tag"># openpai</a>
           
-            <a href="/tags/Ubuntu-18-04/" rel="tag"># Ubuntu 18.04</a>
+            <a href="/tags/PyCharm/" rel="tag"># PyCharm</a>
           
             <a href="/tags/vs-code/" rel="tag"># vs code</a>
           
             <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
           
             <a href="/tags/cluster/" rel="tag"># cluster</a>
+          
+            <a href="/tags/Ubuntu-18-04/" rel="tag"># Ubuntu 18.04</a>
           
         </div>
       
