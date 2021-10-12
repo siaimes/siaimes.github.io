@@ -8,7 +8,7 @@
       <link href="2021/10/11/p58.html"/>
       <url>2021/10/11/p58.html</url>
       
-        <content type="html"><![CDATA[<p>Ubuntu 18.04 系统上有2个6T的硬盘，分别挂载到/home和/usr下。现在要为这两个盘做nfs共享，但是nfs共享只能共享一个文件夹，如果要共享第二个文件夹，那么第二个文件夹必须是第一个文件夹的子文件夹。</p><p>这样，我要么只能共享<code>/home/data</code>，要么只能共享<code>/usr/data</code>。</p><p>这时候就开始脑洞了:</p><ol type="1"><li><p>建立一个软连接<code>/usr/nfs-share</code>到<code>/home/data/nfs-share</code>，然后共享<code>/home/data/nfs-share</code>。实测是客户端无法挂载，提示文件不存在，所以该方案不可行。</p></li><li><p>将<code>/usr</code>所在的硬盘挂载到<code>/home/data/nfs-share</code>，实测该方案成功，客户端可正常挂载<code>/nfs-share</code>。但是存在很大的问题，这样等于客户端可以访问到服务器<code>/usr</code>下的所有文件，想想就恐怖噢，所以该方案不可行。</p></li><li><p>既然方案二可以通，那不就有方案了嘛，把<code>/usr</code>所在的硬盘挂载到<code>/home/data/nfs-share</code>，然后卸载<code>/usr</code>，这样<code>/usr</code>就隶属于根目录，而不是独立的硬盘了，再把<code>/home/data/nfs-share</code>里面的文件用<code>cp -rp</code>命令复制回去就可以了呗。说干就干，<code>sudo umount /usr</code>，<code>sudo cp -rp /home/data/nfs-share/* /usr</code>，完蛋，<code>command not found</code>，这下才想起来坏事了。所有的命令都是存放在<code>/usr/bin</code>和<code>/usr/sbin</code>里面的，你把<code>/usr</code>搞掉了，命令当然就没有了。好在，我还只是用命令行卸载了，没有修改<code>/etc/fstab</code>文件，那重启系统应该就解决了吧。太天真了嘛，所有命令都用不了，当然也不能重启拉。只能物理重启了。</p></li></ol><p><strong><em>后记：</em></strong>最终方案是使用启动盘做方案3的操作，而不是直接在原系统里面做方案3的操作。</p>]]></content>
+        <content type="html"><![CDATA[<p>Ubuntu 18.04 系统上有2个6T的硬盘，分别挂载到/home和/usr下。现在要为这两个盘做nfs共享，但是nfs共享只能共享一个文件夹，如果要共享第二个文件夹，那么第二个文件夹必须是第一个文件夹的子文件夹。</p><p>这样，我要么只能共享<code>/home/data</code>，要么只能共享<code>/usr/data</code>。</p><p>这时候就开始脑洞了:</p><ol type="1"><li><p>建立一个软连接<code>/usr/nfs-share</code>到<code>/home/data/nfs-share</code>，然后共享<code>/home/data/nfs-share</code>。实测是客户端无法挂载，提示文件不存在，所以该方案不可行。</p></li><li><p>将<code>/usr</code>所在的硬盘挂载到<code>/home/data/nfs-share</code>，实测该方案成功，客户端可正常挂载<code>/nfs-share</code>。但是存在很大的问题，这样等于客户端可以访问到服务器<code>/usr</code>下的所有文件，想想就恐怖噢，所以该方案不可行。</p></li><li><p>既然方案二可以通，那不就有方案了嘛，把<code>/usr</code>所在的硬盘挂载到<code>/home/data/nfs-share</code>，然后卸载<code>/usr</code>，这样<code>/usr</code>就隶属于根目录，而不是独立的硬盘了，再把<code>/home/data/nfs-share</code>里面的文件用<code>cp -rp</code>命令复制回去就可以了呗。说干就干，<code>sudo umount /usr</code>，<code>sudo cp -rp /home/data/nfs-share/* /usr</code>，完蛋，<code>command not found</code>，这下才想起来坏事了。所有的命令都是存放在<code>/usr/bin</code>和<code>/usr/sbin</code>里面的，你把<code>/usr</code>搞掉了，命令当然就没有了。好在，我还只是用命令行卸载了，没有修改<code>/etc/fstab</code>文件，那重启系统应该就解决了吧。太天真了嘛，所有命令都用不了，当然也不能重启拉。只能物理重启了。</p></li></ol><p><strong><em>后记：</em></strong>最终方案是使用启动盘做方案3的操作，而不是直接在原系统里面做方案3的操作。</p><p><strong><em>另一种可能：</em></strong>将不同驱动器映射到docker容器的一个目录和该目录的子目录，然后在docker容器里面做nfs共享，简直完美。</p>]]></content>
       
       
       <categories>
@@ -169,9 +169,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Ubuntu 16.04 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> PyCharm </tag>
             
@@ -208,9 +208,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Ubuntu 16.04 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> snap </tag>
             
@@ -239,21 +239,21 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Ubuntu 16.04 </tag>
-            
-            <tag> Anaconda </tag>
-            
-            <tag> NVIDIA </tag>
-            
-            <tag> driver </tag>
             
             <tag> CUDA </tag>
             
             <tag> cuDNN </tag>
             
+            <tag> Linux </tag>
+            
+            <tag> Anaconda </tag>
+            
             <tag> tensorflow </tag>
+            
+            <tag> NVIDIA </tag>
+            
+            <tag> driver </tag>
             
             <tag> PyTorch </tag>
             
@@ -367,11 +367,11 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> SSH Key </tag>
             
             <tag> Debian </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -781,9 +781,9 @@
             
             <tag> 回溯法 </tag>
             
-            <tag> 树的直径 </tag>
-            
             <tag> dfs </tag>
+            
+            <tag> 树的直径 </tag>
             
         </tags>
       
@@ -1160,9 +1160,9 @@
             
             <tag> 分治策略 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 离散化 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 区间覆盖 </tag>
             
