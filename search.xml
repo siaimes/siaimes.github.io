@@ -13,8 +13,6 @@
       
       <categories>
           
-          <category> ubuntu </category>
-          
           <category> linux </category>
           
       </categories>
@@ -22,7 +20,11 @@
       
         <tags>
             
-            <tag> 教训 </tag>
+            <tag> nfs </tag>
+            
+            <tag> ubuntu </tag>
+            
+            <tag> linux </tag>
             
         </tags>
       
@@ -49,11 +51,11 @@
             
             <tag> Linux </tag>
             
+            <tag> PyCharm </tag>
+            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
-            
-            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -173,11 +175,11 @@
             
             <tag> Linux </tag>
             
+            <tag> PyCharm </tag>
+            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
-            
-            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -212,9 +214,9 @@
             
             <tag> Linux </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> snap </tag>
+            
+            <tag> PyCharm </tag>
             
         </tags>
       
@@ -245,11 +247,11 @@
             
             <tag> cuDNN </tag>
             
-            <tag> Linux </tag>
-            
             <tag> Anaconda </tag>
             
             <tag> tensorflow </tag>
+            
+            <tag> Linux </tag>
             
             <tag> NVIDIA </tag>
             
