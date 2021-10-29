@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Ubuntu Apt Update失败</title>
+      <link href="2021/10/29/p59.html"/>
+      <url>2021/10/29/p59.html</url>
+      
+        <content type="html"><![CDATA[<p>Ubuntu 18.04 <code>apt update</code>报错，报错信息如下：<code>Could not handshake: Error in the certificate verification.</code>。</p><p>问题根源：证书过期。</p><p>解决方案来自：<a href="https://github.com/tuna/issues/issues/1342" target="_blank" rel="noopener">https://github.com/tuna/issues/issues/1342</a>。即更换http的源，更新<code>ca-certificates</code>包，然后再换回自己的源即可。</p><ol type="1"><li>更新源：<code>/etc/apt/sources.list</code></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">deb http://in.archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://in.archive.ubuntu.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://in.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb http://security.ubuntu.com/ubuntu bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb-src http://in.archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://security.ubuntu.com/ubuntu bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://in.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://in.archive.ubuntu.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br></pre></td></tr></table></figure><ol start="2" type="1"><li>更新<code>ca-certificates</code>包</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt install -y ca-certificates</span><br></pre></td></tr></table></figure><ol start="3" type="1"><li>换回自己的源，例如清华源：<code>/etc/apt/sources.list</code></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预发布软件源，不建议启用</span></span><br><span class="line"><span class="comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ubuntu </tag>
+            
+            <tag> apt </tag>
+            
+            <tag> 18.04 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>NFS共享的教训</title>
       <link href="2021/10/11/p58.html"/>
       <url>2021/10/11/p58.html</url>
@@ -171,13 +200,13 @@
       
         <tags>
             
+            <tag> Ubuntu 16.04 </tag>
+            
             <tag> Linux </tag>
             
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
-            
-            <tag> Ubuntu 16.04 </tag>
             
             <tag> PyCharm </tag>
             
@@ -210,9 +239,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Ubuntu 16.04 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> PyCharm </tag>
             
@@ -241,17 +270,17 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Ubuntu 16.04 </tag>
+            
+            <tag> Anaconda </tag>
+            
+            <tag> tensorflow </tag>
             
             <tag> CUDA </tag>
             
             <tag> cuDNN </tag>
             
-            <tag> Anaconda </tag>
-            
-            <tag> tensorflow </tag>
+            <tag> Linux </tag>
             
             <tag> NVIDIA </tag>
             
@@ -369,11 +398,11 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> SSH Key </tag>
             
             <tag> Debian </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -1069,9 +1098,9 @@
             
             <tag> 动态规划 </tag>
             
-            <tag> 滚动数组 </tag>
-            
             <tag> 依赖背包 </tag>
+            
+            <tag> 滚动数组 </tag>
             
         </tags>
       
@@ -1162,9 +1191,9 @@
             
             <tag> 分治策略 </tag>
             
-            <tag> 离散化 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 离散化 </tag>
             
             <tag> 区间覆盖 </tag>
             
