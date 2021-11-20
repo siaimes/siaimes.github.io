@@ -84,6 +84,8 @@
             
             <tag> openpai </tag>
             
+            <tag> Ubuntu 18.04 </tag>
+            
             <tag> PyCharm </tag>
             
             <tag> vs code </tag>
@@ -91,8 +93,6 @@
             <tag> Deep Learning </tag>
             
             <tag> cluster </tag>
-            
-            <tag> Ubuntu 18.04 </tag>
             
         </tags>
       
@@ -200,9 +200,9 @@
       
         <tags>
             
-            <tag> Ubuntu 16.04 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Ubuntu 16.04 </tag>
             
             <tag> microsoft </tag>
             
@@ -239,9 +239,9 @@
       
         <tags>
             
-            <tag> Ubuntu 16.04 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Ubuntu 16.04 </tag>
             
             <tag> PyCharm </tag>
             
@@ -270,21 +270,21 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> Ubuntu 16.04 </tag>
             
             <tag> Anaconda </tag>
             
-            <tag> tensorflow </tag>
+            <tag> NVIDIA </tag>
+            
+            <tag> driver </tag>
             
             <tag> CUDA </tag>
             
             <tag> cuDNN </tag>
             
-            <tag> Linux </tag>
-            
-            <tag> NVIDIA </tag>
-            
-            <tag> driver </tag>
+            <tag> tensorflow </tag>
             
             <tag> PyTorch </tag>
             
@@ -398,11 +398,11 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> SSH Key </tag>
             
             <tag> Debian </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
@@ -1191,9 +1191,9 @@
             
             <tag> 分治策略 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 离散化 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 区间覆盖 </tag>
             
