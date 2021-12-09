@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Linux Matplotlib 安装 Times New Roman 字体</title>
+      <link href="2021/12/09/p60.html"/>
+      <url>2021/12/09/p60.html</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd</span><br><span class="line">curl https://dl.freefontsfamily.com/download/Times-New-Roman-Font/ -o Times-New-roman.zip</span><br><span class="line"></span><br><span class="line">unzip Times-New-roman.zip</span><br><span class="line"></span><br><span class="line">python -c &quot;import matplotlib; print(f&apos;path to mpl-data: &#123;matplotlib.matplotlib_fname()[:-12]&#125;&apos;)&quot;</span><br><span class="line"></span><br><span class="line">cp &apos;Times New Roman&apos;/* /path/to/mpl-data/fonts/ttf/</span><br><span class="line"></span><br><span class="line">rm -rf ~/.cache/matplotlib</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 环境 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LInux </tag>
+            
+            <tag> Python </tag>
+            
+            <tag> matplotlib </tag>
+            
+            <tag> Times New Roman </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ubuntu Apt Update失败</title>
       <link href="2021/10/29/p59.html"/>
       <url>2021/10/29/p59.html</url>
@@ -80,11 +111,11 @@
             
             <tag> Linux </tag>
             
+            <tag> PyCharm </tag>
+            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
-            
-            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -204,11 +235,11 @@
             
             <tag> Ubuntu 16.04 </tag>
             
+            <tag> PyCharm </tag>
+            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
-            
-            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -243,9 +274,9 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> snap </tag>
+            
+            <tag> PyCharm </tag>
             
         </tags>
       
@@ -280,11 +311,11 @@
             
             <tag> Anaconda </tag>
             
-            <tag> tensorflow </tag>
-            
             <tag> NVIDIA </tag>
             
             <tag> driver </tag>
+            
+            <tag> tensorflow </tag>
             
             <tag> PyTorch </tag>
             
@@ -1191,9 +1222,9 @@
             
             <tag> 分治策略 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 离散化 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 区间覆盖 </tag>
             
