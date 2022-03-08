@@ -8,7 +8,7 @@
       <link href="2022/03/08/p62.html"/>
       <url>2022/03/08/p62.html</url>
       
-        <content type="html"><![CDATA[<p>问题所在：当需要用DDP同时训练多个模型时，正常情况下将每个模型用DistributedDataParallel类包裹一下即可。当时我想着这样挺麻烦的，就想了一个取巧的办法：我用<a href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module.add_module" target="_blank" rel="noopener">torch.nn.Module.add_module</a>将所有模型注册成为一个大模型，然后以整体一次传递给DistributedDataParallel。</p><p>这样是不是很完美？但是我自己感觉这样会有问题，所以我没忘记做测试。如何测试呢，当然是将网络部分参数打印出来，不同进程的同一个参数值应该是一模一样的。然而现实狠狠的给了我一巴掌，不同进程打印出来的结果除了第一次（刚初始化玩）完全不一样。</p><p>因为这个项目挺大的，我一直没以为是这个原因导致的，所以我DeBug了两天都没有解决，最后是怎么找到问题的呢？</p><p>我将<a href="https://github.com/pytorch/examples/tree/main/imagenet" target="_blank" rel="noopener">pytorch examples</a>下载下来运行确认该代码多个进程之间数据是同步的，然后将我的代码结构和参数往这边靠，我将所有可调的参数都靠过去了我的模型参数还是没有在多个进程间同步。这时我就开始将我的代码中的复杂的模块用这个样例中的简单的模块一一替换，包括data_loader, optimizer, models和迭代过程等。最后的结果是替换了模型之后我的数据就同步了，由此才定位到了应该是上面采用的技巧出的问题。</p><p>此时我想去之前浏览<a href="https://pytorch.org/docs/master/generated/torch.nn.parallel.DistributedDataParallel.html" target="_blank" rel="noopener">DDP的API</a>的时候闪现过去的一个warning</p><figure><img src="/2022/03/08/p62/ddp_warning.jpg" alt><figcaption>DDP_warning</figcaption></figure><p>别说了，都是泪！！！</p><p>DDP坑太多了，比如K80不支持nccl后端，要改为gloo。比如本应该占用其他GPU的进程在0号GPU也占用几百兆显存导致影响最大batch-size的。</p>]]></content>
+        <content type="html"><![CDATA[<p>问题所在：当需要用DDP同时训练多个模型时，正常情况下将每个模型用DistributedDataParallel类包裹一下即可。当时我想着这样挺麻烦的，就想了一个取巧的办法：我用<a href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module.add_module" target="_blank" rel="noopener">torch.nn.Module.add_module</a>将所有模型注册成为一个大模型，然后以整体一次传递给DistributedDataParallel。</p><p>这样是不是很完美？但是我自己感觉这样会有问题，所以我没忘记做测试。如何测试呢，当然是将网络部分参数打印出来，不同进程的同一个参数值应该是一模一样的。然而现实狠狠的给了我一巴掌，不同进程打印出来的结果除了第一次（刚初始化玩）完全不一样。</p><p>因为这个项目挺大的，我一直没以为是这个原因导致的，所以我DeBug了两天都没有解决，最后是怎么找到问题的呢？</p><p>我将<a href="https://github.com/pytorch/examples/tree/main/imagenet" target="_blank" rel="noopener">pytorch examples</a>下载下来运行确认该代码多个进程之间数据是同步的，然后将我的代码结构和参数往这边靠，我将所有可调的参数都靠过去了我的模型参数还是没有在多个进程间同步。这时我就开始将我的代码中的复杂的模块用这个样例中的简单的模块一一替换，包括data_loader, optimizer, models和迭代过程等。最后的结果是替换了模型之后我的数据就同步了，由此才定位到了应该是上面采用的技巧出的问题。</p><p>此时我想去之前浏览<a href="https://pytorch.org/docs/master/generated/torch.nn.parallel.DistributedDataParallel.html" target="_blank" rel="noopener">DDP的API</a>的时候闪现过去的一个warning</p><figure><img src="/2022/03/08/p62/ddp_warning.jpg" alt><figcaption>DDP_warning</figcaption></figure><p>别说了，都是泪！！！</p><p>DDP坑太多了，比如K80不支持nccl后端，要改为gloo。比如本应该占用其他GPU的进程在0号GPU也占用几百兆显存导致影响最大batch-size的。就挺难！！！</p>]]></content>
       
       
       <categories>
@@ -171,11 +171,11 @@
             
             <tag> Linux </tag>
             
+            <tag> PyCharm </tag>
+            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
-            
-            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -295,11 +295,11 @@
             
             <tag> Ubuntu 16.04 </tag>
             
+            <tag> PyCharm </tag>
+            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
-            
-            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -334,9 +334,9 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> snap </tag>
+            
+            <tag> PyCharm </tag>
             
         </tags>
       
@@ -903,9 +903,9 @@
             
             <tag> 回溯法 </tag>
             
-            <tag> dfs </tag>
-            
             <tag> 树的直径 </tag>
+            
+            <tag> dfs </tag>
             
         </tags>
       
@@ -1189,9 +1189,9 @@
             
             <tag> 动态规划 </tag>
             
-            <tag> 依赖背包 </tag>
-            
             <tag> 滚动数组 </tag>
+            
+            <tag> 依赖背包 </tag>
             
         </tags>
       
@@ -1282,9 +1282,9 @@
             
             <tag> 分治策略 </tag>
             
-            <tag> 离散化 </tag>
-            
             <tag> 线段树 </tag>
+            
+            <tag> 离散化 </tag>
             
             <tag> 区间覆盖 </tag>
             
