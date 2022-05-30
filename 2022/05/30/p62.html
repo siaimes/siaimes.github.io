@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Siaimes&#39;s blog">
 <meta property="og:description" content="术语    术语 解释     dev-box 集群安装、管理与维护节点，不用的时候可以关机，请不要格式化，否则再也无法维护集群   master 集群主节点   worker 集群计算节点   所有机器 包括dev-box、master和worker在内的所有节点    前提条件  所有机器操作系统为全新的Ubuntu 18.04 LTS">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-05-30T00:51:14.374Z">
+<meta property="og:updated_time" content="2022-05-30T13:33:36.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openpai v1.8.0部署总结 —— 新版">
 <meta name="twitter:description" content="术语    术语 解释     dev-box 集群安装、管理与维护节点，不用的时候可以关机，请不要格式化，否则再也无法维护集群   master 集群主节点   worker 集群计算节点   所有机器 包括dev-box、master和worker在内的所有节点    前提条件  所有机器操作系统为全新的Ubuntu 18.04 LTS">
@@ -450,7 +450,7 @@
                 
               
 
-              <time title="创建时间：2022-05-30 08:03:15 / 修改时间：08:51:14" itemprop="dateCreated datePublished" datetime="2022-05-30T08:03:15+08:00">2022-05-30</time>
+              <time title="创建时间：2022-05-30 08:03:15 / 修改时间：21:33:36" itemprop="dateCreated datePublished" datetime="2022-05-30T08:03:15+08:00">2022-05-30</time>
             
 
             
@@ -709,7 +709,7 @@
 <h3 id="修改安装脚本">修改安装脚本</h3>
 <p>将 <a href="https://github.com/microsoft/pai/blob/master/src/device-plugin/deploy/start.sh.template#L32" target="_blank" rel="noopener"><pai-code-dir>/src/device-plugin/deploy/start.sh.template#L32</pai-code-dir></a> 由 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn cat https://github.com/NVIDIA/k8s-device-plugin.git/tags/1.0.0-beta4/nvidia-device-plugin.yml \</span><br></pre></td></tr></table></figure></p>
 <p>改为 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">"http://10.10.10.10:10000/k8s-share/NVIDIA/k8s-device-plugin/1.0.0-beta4/nvidia-device-plugin.yml"</span> \</span><br></pre></td></tr></table></figure></p>
-<p>即在运行将<code>nvidia-device-plugin.yml</code>资源文件下载地址改为我们自己启动的服务地址。</p>
+<p>即将<code>nvidia-device-plugin.yml</code>资源文件下载地址改为我们自己启动的服务地址。</p>
 <h2 id="编写参数文件">编写参数文件</h2>
 <p>参考项目文档编写<code>layout.yaml</code>文件。</p>
 <p>参考下面的格式编写<code>config.yaml</code>文件。</p>
