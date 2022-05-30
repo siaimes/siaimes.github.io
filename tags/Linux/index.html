@@ -1049,7 +1049,7 @@
       $('.popup').toggle();
       var $localSearchInput = $('#local-search-input');
       $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", chInput.attr("autocorrect", "off");
+      $localSearchInput.attr("autocorrect", "off");
       $localSearchInput.focus();
     }
 
@@ -1219,7 +1219,7 @@
                   slicesOfContent.sort(function (sliceLeft, sliceRight) {
                     if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
                       return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (iceRight.hits.length) {
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
                       return sliceRight.hits.length - sliceLeft.hits.length;
                     } else {
                       return sliceLeft.start - sliceRight.start;
@@ -1261,8 +1261,6 @@
                       "<p class=\"search-result\">" + highlightKeyword(content, slice) +
                       "...</p>" + "</a>";
                   });
-
-                       });
 
                   resultItem += "</li>";
                   resultItems.push({
@@ -1320,7 +1318,8 @@
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
       e.stopPropagation();
-      if (isfetchchFunc(path, 'local-search-input', 'local-search-result');
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
       } else {
         proceedsearch();
       };
@@ -1363,9 +1362,6 @@
       inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
       processEscapes: true,
       skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-   code']
     },
     TeX: {
       
@@ -1456,6 +1452,15 @@
     }).append(e);
   })
 </script>
+
+
+  
+
+  
+
+</body>
+</html>
+>
 
 
   
