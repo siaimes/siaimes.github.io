@@ -109,7 +109,7 @@
 <meta property="og:description" content="问题所在：当需要用DDP同时训练多个模型时，正常情况下将每个模型用DistributedDataParallel类包裹一下即可。当时我想着这样挺麻烦的，就想了一个取巧的办法：我用torch.nn.Module.add_module将所有模型注册成为一个大模型，然后以整体一次传递给DistributedDataParallel。 这样是不是很完美？但是我自己感觉这样会有问题，所以我没忘记做测试。如">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blog.siaimes.me/2022/03/08/p62/ddp_warning.jpg">
-<meta property="og:updated_time" content="2022-03-09T02:58:31.932Z">
+<meta property="og:updated_time" content="2022-03-09T02:58:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyTorch DistributedDataParallel训练踩坑记录">
 <meta name="twitter:description" content="问题所在：当需要用DDP同时训练多个模型时，正常情况下将每个模型用DistributedDataParallel类包裹一下即可。当时我想着这样挺麻烦的，就想了一个取巧的办法：我用torch.nn.Module.add_module将所有模型注册成为一个大模型，然后以整体一次传递给DistributedDataParallel。 这样是不是很完美？但是我自己感觉这样会有问题，所以我没忘记做测试。如">
@@ -264,7 +264,7 @@
       
     
 
-    <a href="/archives/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">59</span></a>
+    <a href="/archives/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">60</span></a>
 
   </li>
         
@@ -618,6 +618,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2022/05/30/p62.html" rel="prev" title="Openpai v1.8.0部署总结 —— 新版">
+                Openpai v1.8.0部署总结 —— 新版 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -682,7 +686,7 @@
                 
                   <a href="/archives/index.html">
                 
-                    <span class="site-state-item-count">59</span>
+                    <span class="site-state-item-count">60</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
