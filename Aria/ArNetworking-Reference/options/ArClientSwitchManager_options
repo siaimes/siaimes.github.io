@@ -1,8 +1,0 @@
-ArClientSwitchManager options:
--centralServer <host>
--cs <host>
--centralServerPort <port>
--csp <port>
--identifier <identifier>
--id <identifier>
--centralServerInfoFile <fileName>

@@ -101,7 +101,7 @@
 
 
   <meta name="description" content="Ubuntu 18.04 系统上有2个6T的硬盘，分别挂载到/home和/usr下。现在要为这两个盘做nfs共享，但是nfs共享只能共享一个文件夹，如果要共享第二个文件夹，那么第二个文件夹必须是第一个文件夹的子文件夹。 这样，我要么只能共享/home/data，要么只能共享/usr/data。 这时候就开始脑洞了:  建立一个软连接/usr/nfs-share到/home/data/nfs">
-<meta name="keywords" content="ubuntu,linux,nfs">
+<meta name="keywords" content="nfs,ubuntu,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NFS共享的教训">
 <meta property="og:url" content="https://blog.siaimes.me/2021/10/11/p58.html">
@@ -552,6 +552,39 @@
       
     
     
+      <div>
+        <div id="reward-container">
+  <div>给博主加鸡腿！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="siaimes 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.jpg" alt="siaimes 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
       <div>
@@ -586,11 +619,11 @@
         
         <div class="post-tags">
           
+            <a href="/tags/nfs/" rel="tag"># nfs</a>
+          
             <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
           
             <a href="/tags/linux/" rel="tag"># linux</a>
-          
-            <a href="/tags/nfs/" rel="tag"># nfs</a>
           
         </div>
       
@@ -1012,14 +1045,6 @@
                 
                   <li class="links-of-blogroll-item">
                     <a href="https://notes.iissnan.com" title="https://notes.iissnan.com" rel="noopener" target="_blank">Next</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://trojan-gfw.github.io/trojan" title="https://trojan-gfw.github.io/trojan" rel="noopener" target="_blank">trojan</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://kirikira.moe" title="https://kirikira.moe" rel="noopener" target="_blank">kirikira</a>
                   </li>
                 
               </ul>

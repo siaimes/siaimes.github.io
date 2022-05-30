@@ -24,13 +24,13 @@
             
             <tag> PyCharm </tag>
             
-            <tag> Deep Learning </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
             
             <tag> vs code </tag>
+            
+            <tag> Deep Learning </tag>
             
             <tag> cluster </tag>
             
@@ -179,11 +179,11 @@
       
         <tags>
             
+            <tag> nfs </tag>
+            
             <tag> ubuntu </tag>
             
             <tag> linux </tag>
-            
-            <tag> nfs </tag>
             
         </tags>
       
@@ -212,13 +212,13 @@
             
             <tag> PyCharm </tag>
             
-            <tag> Deep Learning </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
             
             <tag> vs code </tag>
+            
+            <tag> Deep Learning </tag>
             
             <tag> cluster </tag>
             
@@ -247,9 +247,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> docker </tag>
             
             <tag> gcr.io </tag>
             
@@ -276,9 +276,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> docker </tag>
             
             <tag> docker-compose </tag>
             
@@ -336,13 +336,13 @@
             
             <tag> PyCharm </tag>
             
-            <tag> Deep Learning </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
             
             <tag> vs code </tag>
+            
+            <tag> Deep Learning </tag>
             
             <tag> cluster </tag>
             
@@ -404,17 +404,17 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> Anaconda </tag>
-            
-            <tag> NVIDIA </tag>
-            
-            <tag> driver </tag>
-            
             <tag> CUDA </tag>
             
             <tag> cuDNN </tag>
             
+            <tag> Anaconda </tag>
+            
             <tag> tensorflow </tag>
+            
+            <tag> NVIDIA </tag>
+            
+            <tag> driver </tag>
             
             <tag> PyTorch </tag>
             
@@ -528,11 +528,11 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> SSH Key </tag>
             
             <tag> Debian </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -824,9 +824,9 @@
             
             <tag> 算法设计与分析习题集 </tag>
             
-            <tag> 分支限界法 </tag>
-            
             <tag> bfs </tag>
+            
+            <tag> 分支限界法 </tag>
             
         </tags>
       
