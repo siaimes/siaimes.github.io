@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Siaimes&#39;s blog">
 <meta property="og:description" content="术语    术语 解释     dev-box 集群安装、管理与维护节点，不用的时候可以关机，请不要格式化，否则再也无法维护集群   master 集群主节点   worker 集群计算节点   所有机器 包括dev-box、master和worker在内的所有节点    前提条件  所有机器操作系统为全新的Ubuntu 18.04 LTS">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-08-08T08:01:45.612Z">
+<meta property="og:updated_time" content="2022-10-11T13:54:19.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openpai v1.8.0部署总结 —— 新版">
 <meta name="twitter:description" content="术语    术语 解释     dev-box 集群安装、管理与维护节点，不用的时候可以关机，请不要格式化，否则再也无法维护集群   master 集群主节点   worker 集群计算节点   所有机器 包括dev-box、master和worker在内的所有节点    前提条件  所有机器操作系统为全新的Ubuntu 18.04 LTS">
@@ -467,7 +467,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2022-08-08 16:01:45" itemprop="dateModified" datetime="2022-08-08T16:01:45+08:00">2022-08-08</time>
+                <time title="修改时间：2022-10-11 21:54:19" itemprop="dateModified" datetime="2022-10-11T21:54:19+08:00">2022-10-11</time>
               
             
           </span>
@@ -705,11 +705,11 @@
 <li><strong><em>可选，用户配额功能</em></strong></li>
 </ol>
 <p>将<a href="https://github.com/microsoft/pai/blob/master/src/hivedscheduler/deploy/hivedscheduler.yaml.template#L39" target="_blank" rel="noopener"><code>&lt;pai-code-dir&gt;/src/hivedscheduler/deploy/hivedscheduler.yaml.template#L39</code></a></p>
-<p>改为 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image: siaimes/hivedscheduler:v0.3.4-hp0521</span><br></pre></td></tr></table></figure></p>
+<p>改为 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image: siaimes/hivedscheduler:v0.3.4-hp20221011</span><br></pre></td></tr></table></figure></p>
 <p>将<a href="https://github.com/microsoft/pai/blob/master/src/webportal/deploy/webportal.yaml.template#L36" target="_blank" rel="noopener"><code>&lt;pai-code-dir&gt;/src/webportal/deploy/webportal.yaml.template#L36</code></a></p>
-<p>改为 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image: siaimes/webportal:v1.8.0-hp0521</span><br></pre></td></tr></table></figure></p>
+<p>改为 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image: siaimes/webportal:v1.8.0-hp20221011</span><br></pre></td></tr></table></figure></p>
 <p>将<a href="https://github.com/microsoft/pai/blob/master/src/rest-server/deploy/rest-server.yaml.template#L36" target="_blank" rel="noopener"><code>&lt;pai-code-dir&gt;/src/rest-server/deploy/rest-server.yaml.template#L36</code></a></p>
-<p>改为 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image: siaimes/rest-server:v1.8.0-hp0522</span><br></pre></td></tr></table></figure></p>
+<p>改为 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image: siaimes/rest-server:v1.8.0-hp20221011</span><br></pre></td></tr></table></figure></p>
 <h2 id="离线安装相关文件准备">离线安装相关文件准备</h2>
 <p><strong><em>参考：</em></strong></p>
 <p><a href="https://github.com/siaimes/k8s-share" target="_blank" rel="noopener">https://github.com/siaimes/k8s-share</a></p>
