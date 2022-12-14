@@ -101,7 +101,7 @@
 
 
   <meta name="description" content="问题所在：当需要用DDP同时训练多个模型时，正常情况下将每个模型用DistributedDataParallel类包裹一下即可。当时我想着这样挺麻烦的，就想了一个取巧的办法：我用torch.nn.Module.add_module将所有模型注册成为一个大模型，然后以整体一次传递给DistributedDataParallel。 这样是不是很完美？但是我自己感觉这样会有问题，所以我没忘记做测试。如">
-<meta name="keywords" content="PyTorch,Deep Learning,DistributedDataParallel,DDP">
+<meta name="keywords" content="Deep Learning,PyTorch,DistributedDataParallel,DDP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyTorch DistributedDataParallel训练踩坑记录">
 <meta property="og:url" content="https://blog.siaimes.me/2022/03/08/p62.html">
@@ -622,9 +622,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
-          
             <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+          
+            <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
           
             <a href="/tags/DistributedDataParallel/" rel="tag"># DistributedDataParallel</a>
           
