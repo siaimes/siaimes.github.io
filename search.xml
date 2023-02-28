@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>使用ddrescue和GParted工具修复Ubuntu系统无法启动</title>
+      <link href="2023/02/28/p64.html"/>
+      <url>2023/02/28/p64.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言">前言</h1><p>一台Ubuntu机器无法启动，启动界面报错<code>error: failure reading sector 0x1910900 from hd2</code>。通过硬盘检测工具发现，作为系统盘的固态硬盘响应特别缓慢，这应该是导致Ubuntu无法启动的原因。另外，发现作为数据盘的机械硬盘存在许多坏道，也需要更换。同时，该Ubuntu拥有许多服务，重装系统将会耗费相当多的精力，所以得想办法克隆整个硬盘。基于Linux下“一切皆文件”的思想，使得备份与恢复Linux系统有了操作空间，但是在实际执行过程中发现还是有很多需要注意的地方，故记录于此。</p><h1 id="方案对比">方案对比</h1><ol type="1"><li><p>Clonezilla：第三方工具，需要刻录启动U盘，但是我刻了它的启动盘却无法启动，不知为何，放弃了。</p></li><li><p>Systemback：网上看到文章写的挺简单，但是操作了一番都发现无法安装，最后发现其停更了，所以不支持Ubuntu 18.04。</p></li><li><p>ddrescue：系统原生硬盘救援工具，实际使用还不错，我是使用的CI接口，网上看有提供UI应该会更好用。新的硬盘比原来硬盘大，用ddrescue会直接将比原来硬盘多出来的空间闲置，可以使用GParted工具扩容分区即可。</p></li></ol><h1 id="克隆硬盘">克隆硬盘</h1><ol type="1"><li><p>将新旧硬盘均插入同一台电脑；</p></li><li><p>使用Ubuntu Desktop启动盘启动该电脑并选择试用Ubuntu，以此进入LiveCD模式；</p></li><li><p>参考<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">Ubuntu 软件仓库镜像使用帮助</a>切换清华源，务必切换源，否则无法安装ddrescue；</p></li><li><p>安装ddrescue：<code>sudo apt install gddrescue</code></p></li><li><p>使用<code>sudo fdisk -l</code>查看硬盘信息，通过硬盘分区情况，或者也可以进入文件管理查看有无文件来区分新旧硬盘，假设旧硬盘为<code>/dev/sda</code>，新硬盘为<code>/dev/sdb</code>；</p></li><li><p>克隆硬盘：<code>sudo ddrescue -v --force /dev/sda /dev/sdb</code>。</p></li></ol><h1 id="扩容分区">扩容分区</h1><p>进入主菜单，搜索GParted即可找到软件，图形界面操作，比较简单，不赘述。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Openpai v1.8.1 部署总结</title>
       <link href="2022/12/11/p63.html"/>
       <url>2022/12/11/p63.html</url>
@@ -22,11 +35,11 @@
             
             <tag> Linux </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -61,11 +74,11 @@
             
             <tag> Linux </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -249,11 +262,11 @@
             
             <tag> Linux </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -373,11 +386,11 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -412,9 +425,9 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> snap </tag>
-            
             <tag> PyCharm </tag>
+            
+            <tag> snap </tag>
             
         </tags>
       
