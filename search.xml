@@ -15,8 +15,6 @@
           
           <category> Linux </category>
           
-          <category> Ubuntu </category>
-          
       </categories>
       
       
@@ -82,11 +80,11 @@
             
             <tag> Linux </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -121,11 +119,11 @@
             
             <tag> Linux </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -309,11 +307,11 @@
             
             <tag> Linux </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -346,9 +344,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> docker </tag>
             
             <tag> gcr.io </tag>
             
@@ -375,9 +373,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> docker </tag>
             
             <tag> docker-compose </tag>
             
@@ -433,11 +431,11 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> PyCharm </tag>
-            
             <tag> microsoft </tag>
             
             <tag> openpai </tag>
+            
+            <tag> PyCharm </tag>
             
             <tag> vs code </tag>
             
@@ -472,9 +470,9 @@
             
             <tag> Ubuntu 16.04 </tag>
             
-            <tag> snap </tag>
-            
             <tag> PyCharm </tag>
+            
+            <tag> snap </tag>
             
         </tags>
       
@@ -1041,9 +1039,9 @@
             
             <tag> 回溯法 </tag>
             
-            <tag> dfs </tag>
-            
             <tag> 树的直径 </tag>
+            
+            <tag> dfs </tag>
             
         </tags>
       
