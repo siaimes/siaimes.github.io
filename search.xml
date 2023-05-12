@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>服务器压力测试</title>
+      <link href="2023/05/12/p65.html"/>
+      <url>2023/05/12/p65.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="cpu压力测试">CPU压力测试</h1><p>用<a href="https://github.com/ColinIanKing/stress-ng" target="_blank" rel="noopener">Stress-ng</a>。</p><h1 id="gpu压力测试">GPU压力测试</h1><p>用<a href="https://github.com/wilicc/gpu-burn" target="_blank" rel="noopener">gpu-burn</a>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> Ubuntu </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+            <tag> 压力测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用ddrescue和GParted工具修复Ubuntu系统无法启动</title>
       <link href="2023/02/28/p64.html"/>
       <url>2023/02/28/p64.html</url>
@@ -249,9 +278,9 @@
       
         <tags>
             
-            <tag> ubuntu </tag>
-            
             <tag> nfs </tag>
+            
+            <tag> ubuntu </tag>
             
             <tag> linux </tag>
             
@@ -317,9 +346,9 @@
       
         <tags>
             
-            <tag> ubuntu </tag>
-            
             <tag> docker </tag>
+            
+            <tag> ubuntu </tag>
             
             <tag> gcr.io </tag>
             
@@ -346,9 +375,9 @@
       
         <tags>
             
-            <tag> ubuntu </tag>
-            
             <tag> docker </tag>
+            
+            <tag> ubuntu </tag>
             
             <tag> docker-compose </tag>
             
@@ -1298,9 +1327,9 @@
             
             <tag> 动态规划 </tag>
             
-            <tag> 依赖背包 </tag>
-            
             <tag> 滚动数组 </tag>
+            
+            <tag> 依赖背包 </tag>
             
         </tags>
       
