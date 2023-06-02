@@ -570,7 +570,6 @@
                     
                       
                     
-               
                       
                     
                       
@@ -579,7 +578,7 @@
                     
                       
                     
-      
+                      
                     
                       
                     
@@ -1222,7 +1221,7 @@
                     if(end > content.length){
                       end = content.length;
                     }
-                    slicesOfContent.push(mergeIntoSlice(content));
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
                   }
 
                   // sort slices in content by search text's count and hits' count
@@ -1463,15 +1462,6 @@
     }).append(e);
   })
 </script>
-
-
-  
-
-  
-
-</body>
-</html>
->
 
 
   
