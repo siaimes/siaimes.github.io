@@ -101,26 +101,26 @@
 
 
   <meta name="description" content="问题所在：当需要用DDP同时训练多个模型时，正常情况下将每个模型用DistributedDataParallel类包裹一下即可。当时我想着这样挺麻烦的，就想了一个取巧的办法：我用torch.nn.Module.add_module将所有模型注册成为一个大模型，然后以整体一次传递给DistributedDataParallel。 这样是不是很完美？但是我自己感觉这样会有问题，所以我没忘记做测试。如">
-<meta name="keywords" content="Deep Learning,PyTorch,DistributedDataParallel,DDP">
+<meta name="keywords" content="PyTorch,Deep Learning,DistributedDataParallel,DDP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyTorch DistributedDataParallel训练踩坑记录">
-<meta property="og:url" content="https://blog.siaimes.me/2022/03/08/p62.html">
+<meta property="og:url" content="https://siaimes.github.io/2022/03/08/p62.html">
 <meta property="og:site_name" content="Siaimes&#39;s blog">
 <meta property="og:description" content="问题所在：当需要用DDP同时训练多个模型时，正常情况下将每个模型用DistributedDataParallel类包裹一下即可。当时我想着这样挺麻烦的，就想了一个取巧的办法：我用torch.nn.Module.add_module将所有模型注册成为一个大模型，然后以整体一次传递给DistributedDataParallel。 这样是不是很完美？但是我自己感觉这样会有问题，所以我没忘记做测试。如">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://blog.siaimes.me/2022/03/08/p62/ddp_warning.jpg">
+<meta property="og:image" content="https://siaimes.github.io/2022/03/08/p62/ddp_warning.jpg">
 <meta property="og:updated_time" content="2022-03-09T02:58:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyTorch DistributedDataParallel训练踩坑记录">
 <meta name="twitter:description" content="问题所在：当需要用DDP同时训练多个模型时，正常情况下将每个模型用DistributedDataParallel类包裹一下即可。当时我想着这样挺麻烦的，就想了一个取巧的办法：我用torch.nn.Module.add_module将所有模型注册成为一个大模型，然后以整体一次传递给DistributedDataParallel。 这样是不是很完美？但是我自己感觉这样会有问题，所以我没忘记做测试。如">
-<meta name="twitter:image" content="https://blog.siaimes.me/2022/03/08/p62/ddp_warning.jpg">
+<meta name="twitter:image" content="https://siaimes.github.io/2022/03/08/p62/ddp_warning.jpg">
 
 
 
 
 
   
-    <link rel="canonical" href="https://blog.siaimes.me/2022/03/08/p62.html">
+    <link rel="canonical" href="https://siaimes.github.io/2022/03/08/p62.html">
   
   
 
@@ -409,7 +409,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.siaimes.me/2022/03/08/p62.html">
+    <link itemprop="mainEntityOfPage" href="https://siaimes.github.io/2022/03/08/p62.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="siaimes">
@@ -606,7 +606,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://blog.siaimes.me/2022/03/08/p62.html" title="PyTorch DistributedDataParallel训练踩坑记录">https://blog.siaimes.me/2022/03/08/p62.html</a>
+    <a href="https://siaimes.github.io/2022/03/08/p62.html" title="PyTorch DistributedDataParallel训练踩坑记录">https://siaimes.github.io/2022/03/08/p62.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nd/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-ND</a> 许可协议。转载请注明出处！</li>
@@ -622,9 +622,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
-          
             <a href="/tags/PyTorch/" rel="tag"># PyTorch</a>
+          
+            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
           
             <a href="/tags/DistributedDataParallel/" rel="tag"># DistributedDataParallel</a>
           
