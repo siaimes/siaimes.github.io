@@ -276,9 +276,9 @@
       
         <tags>
             
-            <tag> nfs </tag>
-            
             <tag> ubuntu </tag>
+            
+            <tag> nfs </tag>
             
             <tag> linux </tag>
             
@@ -427,9 +427,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Ubuntu 16.04 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> PyCharm </tag>
             
@@ -466,9 +466,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Ubuntu 16.04 </tag>
+            
+            <tag> Linux </tag>
             
             <tag> snap </tag>
             
@@ -497,17 +497,17 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Ubuntu 16.04 </tag>
-            
-            <tag> Anaconda </tag>
-            
-            <tag> tensorflow </tag>
             
             <tag> CUDA </tag>
             
             <tag> cuDNN </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> Anaconda </tag>
+            
+            <tag> tensorflow </tag>
             
             <tag> NVIDIA </tag>
             
@@ -625,11 +625,11 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> SSH Key </tag>
             
             <tag> Debian </tag>
-            
-            <tag> Linux </tag>
             
         </tags>
       
