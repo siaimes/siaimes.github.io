@@ -276,9 +276,9 @@
       
         <tags>
             
-            <tag> ubuntu </tag>
-            
             <tag> nfs </tag>
+            
+            <tag> ubuntu </tag>
             
             <tag> linux </tag>
             
@@ -344,9 +344,9 @@
       
         <tags>
             
-            <tag> ubuntu </tag>
-            
             <tag> docker </tag>
+            
+            <tag> ubuntu </tag>
             
             <tag> gcr.io </tag>
             
@@ -373,9 +373,9 @@
       
         <tags>
             
-            <tag> ubuntu </tag>
-            
             <tag> docker </tag>
+            
+            <tag> ubuntu </tag>
             
             <tag> docker-compose </tag>
             
@@ -427,9 +427,9 @@
       
         <tags>
             
-            <tag> Ubuntu 16.04 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Ubuntu 16.04 </tag>
             
             <tag> PyCharm </tag>
             
@@ -466,9 +466,9 @@
       
         <tags>
             
-            <tag> Ubuntu 16.04 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Ubuntu 16.04 </tag>
             
             <tag> snap </tag>
             
@@ -497,13 +497,13 @@
       
         <tags>
             
+            <tag> Linux </tag>
+            
             <tag> Ubuntu 16.04 </tag>
             
             <tag> CUDA </tag>
             
             <tag> cuDNN </tag>
-            
-            <tag> Linux </tag>
             
             <tag> Anaconda </tag>
             
@@ -625,11 +625,11 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> SSH Key </tag>
             
             <tag> Debian </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -737,7 +737,7 @@
       <link href="2019/05/08/p42.html"/>
       <url>2019/05/08/p42.html</url>
       
-        <content type="html"><![CDATA[<h1 id="项目地址">项目地址</h1><p>项目主站：<a href="https://blog.siaimes.me/ThesisFZU/" target="_blank" rel="noopener">ThesisFZU web page</a></p><p>项目仓库：<a href="https://github.com/siaimes/ThesisFZU" target="_blank" rel="noopener">ThesisFZU github</a></p><h1 id="下载地址">下载地址</h1><p>项目主站下载<a href="https://github.com/siaimes/ThesisFZU/zipball/master" target="_blank" rel="noopener">download ThesisFZU from web page</a></p><p>项目仓库下载<a href="https://github.com/siaimes/ThesisFZU/archive/master.zip" target="_blank" rel="noopener">download ThesisFZU from github</a></p><h1 id="模板特色">模板特色</h1><blockquote><ol type="1"><li>章节编号使用隐藏的阿拉伯数字，实际显示的编号需要手动输入，所以本模板可以在处理所有章节编号格式的同时，不影响交叉引用。不同的专业使用只需对照自己的规范对章编号做细微调整即可；</li><li>本模板中各个模块按照本科生和研究生规范的并集设计制作，注意核对自己的论文规范将不需要的模块删除；</li><li>全文使用样式表排版，做到最大程度的自动化，模板中的样式严格按照《福州大学本科生毕业设计（论文）撰写规范（2017年修订）》和《福州大学研究生毕业论文规范（2016年修订）》设计制作；</li><li>公式建议使用<a href="http://www.amyxun.com/" target="_blank" rel="noopener">AxMath</a><sup>*</sup>插件，该插件支持所见即所得、LaTeX编辑器和交叉引用等，相当好用，最关键的是排版效果相当漂亮；</li><li>优化word自带参考文献排版引擎，并编写引文设置为上标的VBA代码，做到参考文献全自动管理；</li></ol></blockquote><h1 id="使用技巧">使用技巧</h1><blockquote><ol type="1"><li>本模板使用office 365设计制作，要使用该模板，office版本需要在2016及以上，否则不能保证一切正常；</li><li>直接在模板上双击即可新建一个word文档，若提示宏已被禁用，需要点击“启用内容”，否则无法自动管理参考文献；</li><li>若word文档在不同电脑之间迁移或者你移动了模板位置，这会由于无法索引到模板而导致无法自动管理参考文献，现象为找不到宏“调整参考文献格式”，此时打开：Word&gt;&gt;文件&gt;&gt;选项&gt;&gt;加载项&gt;&gt;管理[Word加载项]&gt;&gt;转到，重新选用文档模板即可；</li><li>不建议将该模板导入其他word文件，无法保证一切正常，如果论文快完成才知道这个模板可以考虑将论文使用该模板重排。</li></ol></blockquote><p><sup>*</sup>注：由于该插件需要写入注册表，故许多安全软件会报告病毒，此时请按照官网提示操作即可。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="项目地址">项目地址</h1><p>项目主站：<a href="https://siaimes.github.io/ThesisFZU/">ThesisFZU web page</a></p><p>项目仓库：<a href="https://github.com/siaimes/ThesisFZU" target="_blank" rel="noopener">ThesisFZU github</a></p><h1 id="下载地址">下载地址</h1><p>项目主站下载<a href="https://github.com/siaimes/ThesisFZU/zipball/master" target="_blank" rel="noopener">download ThesisFZU from web page</a></p><p>项目仓库下载<a href="https://github.com/siaimes/ThesisFZU/archive/master.zip" target="_blank" rel="noopener">download ThesisFZU from github</a></p><h1 id="模板特色">模板特色</h1><blockquote><ol type="1"><li>章节编号使用隐藏的阿拉伯数字，实际显示的编号需要手动输入，所以本模板可以在处理所有章节编号格式的同时，不影响交叉引用。不同的专业使用只需对照自己的规范对章编号做细微调整即可；</li><li>本模板中各个模块按照本科生和研究生规范的并集设计制作，注意核对自己的论文规范将不需要的模块删除；</li><li>全文使用样式表排版，做到最大程度的自动化，模板中的样式严格按照《福州大学本科生毕业设计（论文）撰写规范（2017年修订）》和《福州大学研究生毕业论文规范（2016年修订）》设计制作；</li><li>公式建议使用<a href="http://www.amyxun.com/" target="_blank" rel="noopener">AxMath</a><sup>*</sup>插件，该插件支持所见即所得、LaTeX编辑器和交叉引用等，相当好用，最关键的是排版效果相当漂亮；</li><li>优化word自带参考文献排版引擎，并编写引文设置为上标的VBA代码，做到参考文献全自动管理；</li></ol></blockquote><h1 id="使用技巧">使用技巧</h1><blockquote><ol type="1"><li>本模板使用office 365设计制作，要使用该模板，office版本需要在2016及以上，否则不能保证一切正常；</li><li>直接在模板上双击即可新建一个word文档，若提示宏已被禁用，需要点击“启用内容”，否则无法自动管理参考文献；</li><li>若word文档在不同电脑之间迁移或者你移动了模板位置，这会由于无法索引到模板而导致无法自动管理参考文献，现象为找不到宏“调整参考文献格式”，此时打开：Word&gt;&gt;文件&gt;&gt;选项&gt;&gt;加载项&gt;&gt;管理[Word加载项]&gt;&gt;转到，重新选用文档模板即可；</li><li>不建议将该模板导入其他word文件，无法保证一切正常，如果论文快完成才知道这个模板可以考虑将论文使用该模板重排。</li></ol></blockquote><p><sup>*</sup>注：由于该插件需要写入注册表，故许多安全软件会报告病毒，此时请按照官网提示操作即可。</p>]]></content>
       
       
       <categories>
@@ -1039,9 +1039,9 @@
             
             <tag> 回溯法 </tag>
             
-            <tag> dfs </tag>
-            
             <tag> 树的直径 </tag>
+            
+            <tag> dfs </tag>
             
         </tags>
       
@@ -1418,9 +1418,9 @@
             
             <tag> 分治策略 </tag>
             
-            <tag> 线段树 </tag>
-            
             <tag> 离散化 </tag>
+            
+            <tag> 线段树 </tag>
             
             <tag> 区间覆盖 </tag>
             
